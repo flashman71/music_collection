@@ -6,9 +6,9 @@ This is for my personal use.  It's so I can learn some Python coding as well as 
 <BR>
 Dependencies:<BR>
     
-    Oracle database (actually any database, but the current database services are setup for Oracle)<BR>
+    Oracle database (actually any database, but the current database services are setup for Oracle)
     
-    last.fm - Need an apikey to access web services<BR><BR>
+    last.fm - Need an apikey to access web services
     
 Local requirements:
     artists.txt - This is a list of bands/musicians that will be queried against the last.fm database
@@ -16,27 +16,27 @@ Local requirements:
 
 File system layout:<BR>
     
-    music_collection---root directory, contains the .py files<BR>
+    music_collection---root directory, contains the .py files
 
-                      --music_client.py - Main driver program<BR>
+                      --music_client.py - Main driver program
 
-                      --music_database.py - Functions for accessing the database (inserts/updates)<BR>
+                      --music_database.py - Functions for accessing the database (inserts/updates)
 
-                      --music_services.py - Web services used by the client program<BR>
+                      --music_services.py - Web services used by the client program
 
-                    |<BR>
-                    <BR>
-                    ->db<BR>
+                    |
                     
-                       --music_collection.rc - Configuration file with directory locations output, log, etc<BR>
+                    ->db
+                    
+                       --music_collection.rc - Configuration file with directory locations output, log, etc
                        
-                       --artists.txt - List of bands/musicians, 1 per line<BR>
+                       --artists.txt - List of bands/musicians, 1 per line
                        
-                    |<BR>
+                    |
                     
-                    ->output  --Contains the exception list of bands/musicians that could not be found on last.fm<BR>
+                    ->output  --Contains the exception list of bands/musicians that could not be found on last.fm
                     
-                    |<BR>
+                    |
                     
-                    ->log  --Contains the exceptions when processing albums and tracks for bands/musicians<BR>
+                    ->log  --Contains the exceptions when processing albums and tracks for bands/musicians
                     

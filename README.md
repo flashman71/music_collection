@@ -1,10 +1,10 @@
 # music_collection
 Builds tables of artists,releases,and tracks as well as similar artists
 
-<BR>
+
 This is for my personal use.  It's so I can learn some Python coding as well as Neo4j graph database.  
-<BR>
-Dependencies:<BR>
+
+Dependencies:
     
     Oracle database (actually any database, but the current database services are setup for Oracle)
     
@@ -14,7 +14,7 @@ Local requirements:
     artists.txt - This is a list of bands/musicians that will be queried against the last.fm database
                   to collect the information.
 
-File system layout:<BR>
+File system layout:
     
     music_collection---root directory, contains the .py files
 

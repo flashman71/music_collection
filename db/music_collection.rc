@@ -1,0 +1,8 @@
+DIRECTORIES:
+     MC_BASE:/home/gary/dev/git/music_collection
+     OUTPUT:/home/gary/dev/git/music_collection/output
+     LOG:/home/gary/dev/git/music_collection/log
+
+FILES:
+     ARTIST_FILE:/home/gary/dev/git/music_collection/db/artists.txt
+     KEYFILE:/home/gary/dev/git/music_collection/.keyfile

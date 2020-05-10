@@ -1,0 +1,351 @@
+/* 
+   Package that manages access to the database tables
+   All inserts/updates should occur through these procedures
+*/
+CREATE OR REPLACE PACKAGE MUSIC_APP.MUSIC_COLL_OPS 
+AS 
+
+PROCEDURE INS_UPD_ARTIST(P_ID           IN  NUMBER, 
+                         P_ARTIST_NAME  IN  VARCHAR2, 
+                         P_MBID         IN  VARCHAR2, 
+                         P_APP          IN  VARCHAR2, 
+                         O_ID           OUT NUMBER, 
+                         O_STATUS       OUT NUMBER, 
+                         O_MESSAGE      OUT VARCHAR2); 
+
+PROCEDURE INS_UPD_ALBUM(P_ID           IN  NUMBER,
+                        P_ARTIST_ID    IN  NUMBER,
+                        P_ALBUM_NAME   IN  VARCHAR2,
+                        P_APP          IN  VARCHAR2,
+                        O_ID           OUT NUMBER,
+                        O_STATUS       OUT NUMBER,
+                        O_MESSAGE      OUT VARCHAR2);
+
+PROCEDURE INS_UPD_TRACK(P_ID           IN  NUMBER,
+                        P_ARTIST_ID    IN  NUMBER,
+                        P_ALBUM_ID     IN  NUMBER,
+                        P_TRACK_NAME   IN  VARCHAR2,
+                        P_APP          IN  VARCHAR2,
+                        O_ID           OUT NUMBER,
+                        O_STATUS       OUT NUMBER,
+                        O_MESSAGE      OUT VARCHAR2);
+
+END;
+/
+
+CREATE OR REPLACE PACKAGE BODY MUSIC_APP.MUSIC_COLL_OPS
+AS
+
+/*  ****************************************************
+      Local functions
+    **************************************************** */
+
+/* ************************************************************
+    Function.....: VALID_ARTIST
+    Description..: Checks in MUSIC_APP.ARTISTS for a valid record by ARTIST ID
+                   Returns 0 if successful, otherwise returns negative value
+    Input........: ARTIST_ID 
+    Return.......: 0 for success, < 0 for failure
+   ************************************************************ */
+FUNCTION VALID_ARTIST(P_ARTIST_ID   IN  NUMBER) RETURN NUMBER
+IS
+
+V_ID          MUSIC_APP.ALBUMS.ID%TYPE;
+V_PROC_NAME   VARCHAR2(12) := 'VALID_ARTIST';
+V_RET_STATUS  NUMBER;
+V_RET_MESSAGE VARCHAR2(500);
+
+BEGIN
+  SELECT ID
+  INTO   V_ID
+  FROM   MUSIC_APP.ARTISTS
+  WHERE  ID = P_ARTIST_ID;
+   RETURN 0;
+EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+    BEGIN
+      MUSIC_APP.MUSIC_COLL_UTIL.LOG_MESSAGE(V_PROC_NAME,'No data found for ['||P_ARTIST_ID||']',V_RET_STATUS, V_RET_MESSAGE);
+     EXCEPTION
+      WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE(V_PROC_NAME||' - OTHERS ['||SUBSTR(SQLERRM,1,200)||']');
+    END;
+     RETURN -1;
+  WHEN TOO_MANY_ROWS THEN
+    BEGIN
+      MUSIC_APP.MUSIC_COLL_UTIL.LOG_MESSAGE(V_PROC_NAME,'Multiple records found for ['||P_ARTIST_ID||']',V_RET_STATUS, V_RET_MESSAGE);
+     EXCEPTION
+      WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE(V_PROC_NAME||' - OTHERS ['||SUBSTR(SQLERRM,1,200)||']');
+    END;
+     RETURN -2;
+  WHEN OTHERS THEN
+    BEGIN
+      MUSIC_APP.MUSIC_COLL_UTIL.LOG_MESSAGE(V_PROC_NAME,'OTHERS ['||SUBSTR(SQLERRM,1,200)||']',V_RET_STATUS, V_RET_MESSAGE);
+    EXCEPTION
+      WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE(V_PROC_NAME||' - OTHERS ['||SUBSTR(SQLERRM,1,200)||']');
+    END;
+     RETURN -9;
+END;
+
+/* ************************************************************
+    Function.....: VALID_ALBUM
+    Description..: Checks in MUSIC_APP.ALBUMS for a valid record by ARTIST ID and ALBUM ID
+                   Returns 0 if successful, otherwise returns negative value
+    Input........: ARTIST_ID 
+                   ALBUM ID
+    Return.......: 0 for success, < 0 for failure
+   ************************************************************ */
+FUNCTION VALID_ALBUM(P_ARTIST_ID   IN  NUMBER,
+                     P_ALBUM_ID    IN  NUMBER) RETURN NUMBER
+IS
+
+V_ID          MUSIC_APP.ALBUMS.ID%TYPE;
+V_PROC_NAME   VARCHAR2(12) := 'VALID_ALBUM';
+V_RET_STATUS  NUMBER;
+V_RET_MESSAGE VARCHAR2(500);
+
+BEGIN
+  SELECT ID
+  INTO   V_ID
+  FROM   MUSIC_APP.ALBUMS
+  WHERE  ID        = P_ALBUM_ID
+  AND    ARTIST_ID = P_ARTIST_ID;
+   RETURN 0;
+EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+    BEGIN
+      MUSIC_APP.MUSIC_COLL_UTIL.LOG_MESSAGE(V_PROC_NAME,'No data found for ['||P_ARTIST_ID||'], ALUMB ID ['||P_ALBUM_ID||']',V_RET_STATUS, V_RET_MESSAGE);
+     EXCEPTION
+      WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE(V_PROC_NAME||' - OTHERS ['||SUBSTR(SQLERRM,1,200)||']');
+    END;
+     RETURN -1;
+  WHEN TOO_MANY_ROWS THEN
+    BEGIN
+      MUSIC_APP.MUSIC_COLL_UTIL.LOG_MESSAGE(V_PROC_NAME,'Multiple records found for ['||P_ARTIST_ID||'], ALUMB ID ['||P_ALBUM_ID||']',V_RET_STATUS, V_RET_MESSAGE);
+     EXCEPTION
+      WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE(V_PROC_NAME||' - OTHERS ['||SUBSTR(SQLERRM,1,200)||']');
+    END;
+     RETURN -2;
+  WHEN OTHERS THEN
+    BEGIN
+      MUSIC_APP.MUSIC_COLL_UTIL.LOG_MESSAGE(V_PROC_NAME,'OTHERS ['||SUBSTR(SQLERRM,1,200)||']',V_RET_STATUS, V_RET_MESSAGE);
+    EXCEPTION
+      WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE(V_PROC_NAME||' - OTHERS ['||SUBSTR(SQLERRM,1,200)||']');
+    END;
+     RETURN -9;
+END;
+
+/*  ****************************************************
+      Public functions
+    **************************************************** */
+
+/* ************************************************************
+    Procedure....: INS_UPD_ARTIST
+    Description..: Inserts ARTIST record if not found, otherwise updates existing record
+    Input........: ID - local id generated by database
+                   ARTIST NAME
+                   MBID
+                   APP NAME - Calling application/process
+    Return.......: ID - new ID generated by system or existing ID if record already exists
+                   Status - 0 for success, <0 for failure
+                   Message - SUCCESS or reason for failure
+   ************************************************************ */
+PROCEDURE INS_UPD_ARTIST(P_ID           IN  NUMBER,
+                         P_ARTIST_NAME  IN  VARCHAR2,
+                         P_MBID         IN  VARCHAR2,
+                         P_APP          IN  VARCHAR2,
+                         O_ID           OUT NUMBER,
+                         O_STATUS       OUT NUMBER,
+                         O_MESSAGE      OUT VARCHAR2)
+IS
+
+V_PROC_NAME   VARCHAR2(14) := 'INS_UPD_ARTIST';
+V_RET_STATUS  NUMBER       := 0;
+V_RET_MESSAGE VARCHAR2(500);
+
+BEGIN
+  --Default return values
+    O_STATUS  := 0;
+    O_MESSAGE := 'SUCCESS';
+
+  IF NVL(P_ID,-1) > 0 THEN
+   --Updating record
+     UPDATE MUSIC_APP.ARTISTS
+     SET    NAME         = P_ARTIST_NAME,
+            MBID         = P_MBID,
+            APP_UPDATED  = P_APP,
+            DATE_UPDATED = SYSDATE
+     WHERE  ID = P_ID;
+  ELSE
+   --Inserting new record
+     INSERT INTO MUSIC_APP.ARTISTS(NAME,MBID,APP_CREATED,DATE_CREATED) 
+                 VALUES(P_ARTIST_NAME, P_MBID, P_APP, SYSDATE)
+                   RETURNING ID INTO O_ID;
+  END IF;
+EXCEPTION
+  WHEN OTHERS THEN
+   O_STATUS := -2;
+   O_MESSAGE := 'OTHERS '||V_PROC_NAME||' ['||SUBSTR(SQLERRM,1,200)||']';
+   O_MESSAGE := 'OTHERS '||V_PROC_NAME||' ['||SUBSTR(SQLERRM,1,200)||'], P_ARTIST_NAME ['||P_ARTIST_NAME||'], MBID ['||P_MBID||']';
+    BEGIN
+      MUSIC_APP.MUSIC_COLL_UTIL.LOG_MESSAGE(V_PROC_NAME,O_MESSAGE,V_RET_STATUS, V_RET_MESSAGE);
+       IF V_RET_STATUS < 0 THEN
+           DBMS_OUTPUT.PUT_LINE('Unable to log error message, proc ['||V_PROC_NAME||'], MESG ['||V_RET_MESSAGE||']');
+       END IF; 
+    EXCEPTION
+      WHEN OTHERS THEN
+       O_STATUS := -3;
+       DBMS_OUTPUT.PUT_LINE('OTHERS logging error message, proc ['||V_PROC_NAME||'], MESG ['||SUBSTR(SQLERRM,1,200)||']');
+    END;
+END INS_UPD_ARTIST;
+
+/* ************************************************************
+    Procedure....: INS_UPD_ALBUM
+    Description..: Inserts ALBUM record if not found, otherwise updates existing record
+    Input........: ID - local id generated by database
+                   ARTIST ID
+                   ALBUM NAME
+                   APP NAME - Calling application/process
+    Return.......: ID - new ID generated by system or existing ID if record already exists
+                   Status - 0 for success, <0 for failure
+                   Message - SUCCESS or reason for failure
+   ************************************************************ */
+PROCEDURE INS_UPD_ALBUM(P_ID           IN  NUMBER,
+                        P_ARTIST_ID    IN  NUMBER,
+                        P_ALBUM_NAME   IN  VARCHAR2,
+                        P_APP          IN  VARCHAR2,
+                        O_ID           OUT NUMBER,
+                        O_STATUS       OUT NUMBER,
+                        O_MESSAGE      OUT VARCHAR2)
+IS
+
+V_PROC_NAME    VARCHAR2(14) := 'INS_UPD_ALBUM';
+V_RET_STATUS   NUMBER;
+V_RET_MESSAGE  VARCHAR2(500);
+
+BEGIN
+  --Default return values
+     O_STATUS  := 0;
+     O_MESSAGE := 'SUCCESS';
+
+--Check for valid artis
+  IF VALID_ARTIST(P_ARTIST_ID) = 0 THEN
+      IF NVL(P_ID,-1) > 0 THEN
+          --Update the album
+     DBMS_OUTPUT.PUT_LINE('DEBUG->INS_UPD_ALBUM, Updating record');
+           UPDATE MUSIC_APP.ALBUMS
+           SET    ALBUM_NAME   = P_ALBUM_NAME,
+                  APP_UPDATED  = P_APP,
+                  DATE_UPDATED = SYSDATE
+           WHERE  ID           = P_ID;                  
+            IF SQL%ROWCOUNT != 1 THEN
+                O_STATUS  := -2;
+                O_MESSAGE := V_PROC_NAME||' - ID ['||P_ID||'], not found, no records updated';
+            END IF;
+      ELSE
+        --Insert the album
+     DBMS_OUTPUT.PUT_LINE('DEBUG->INS_UPD_ALBUM, Insert new record');
+     DBMS_OUTPUT.PUT_LINE('DEBUG->......ALBUM ['||P_ALBUM_NAME||'], ARTIST ID ['||P_ARTIST_ID||'], APP ['||P_APP||']');
+         INSERT INTO MUSIC_APP.ALBUMS(ALBUM_NAME,ARTIST_ID,APP_CREATED,DATE_CREATED)
+                               VALUES(P_ALBUM_NAME, P_ARTIST_ID, P_APP, SYSDATE)
+                               RETURNING ID INTO O_ID;
+      END IF;
+  ELSE
+   --Invalid artist id provided
+   O_STATUS  := -1;
+   O_MESSAGE := V_PROC_NAME||' - Invalid artist id ['||P_ARTIST_ID||']';
+     MUSIC_APP.MUSIC_COLL_UTIL.LOG_MESSAGE(V_PROC_NAME,O_MESSAGE,V_RET_STATUS, V_RET_MESSAGE);
+  END IF;
+EXCEPTION
+  WHEN OTHERS THEN
+   O_STATUS := -2;
+   O_MESSAGE := 'OTHERS '||V_PROC_NAME||' ['||SUBSTR(SQLERRM,1,200)||'], ALBUM_NAME ['||P_ALBUM_NAME||'], P_ARTIST_ID ['||P_ARTIST_ID||']';
+    BEGIN
+      MUSIC_APP.MUSIC_COLL_UTIL.LOG_MESSAGE(V_PROC_NAME,O_MESSAGE,V_RET_STATUS, V_RET_MESSAGE);
+       IF V_RET_STATUS < 0 THEN
+           DBMS_OUTPUT.PUT_LINE('Unable to log error message, proc ['||V_PROC_NAME||'], MESG ['||V_RET_MESSAGE||']');
+       END IF; 
+    EXCEPTION
+      WHEN OTHERS THEN
+       O_STATUS := -3;
+       DBMS_OUTPUT.PUT_LINE('OTHERS logging error message, proc ['||V_PROC_NAME||'], MESG ['||SUBSTR(SQLERRM,1,200)||']');
+    END;
+END INS_UPD_ALBUM;
+
+/* ************************************************************
+    Procedure....: INS_UPD_TRACK
+    Description..: Inserts TRACK record if not found, otherwise updates existing record
+    Input........: ID - local id generated by database
+                   ARTIST ID
+                   ALBUM ID
+                   TRACK NAME
+                   APP NAME - Calling application/process
+    Return.......: ID - new ID generated by system or existing ID if record already exists
+                   Status - 0 for success, <0 for failure
+                   Message - SUCCESS or reason for failure
+   ************************************************************ */
+PROCEDURE INS_UPD_TRACK(P_ID           IN  NUMBER,
+                        P_ARTIST_ID    IN  NUMBER,
+                        P_ALBUM_ID     IN  NUMBER,
+                        P_TRACK_NAME   IN  VARCHAR2,
+                        P_APP          IN  VARCHAR2,
+                        O_ID           OUT NUMBER,
+                        O_STATUS       OUT NUMBER,
+                        O_MESSAGE      OUT VARCHAR2)
+IS
+
+V_PROC_NAME    VARCHAR2(14) := 'INS_UPD_TRACK';
+V_RET_STATUS   NUMBER;
+V_RET_MESSAGE  VARCHAR2(500);
+V_TRACK_NAME   MUSIC_APP.TRACKS.TRACK_NAME%TYPE;
+
+BEGIN
+  --Default return values
+     O_STATUS  := 0;
+     O_MESSAGE := 'SUCCESS';
+
+     V_TRACK_NAME := SUBSTR(P_TRACK_NAME,3,LENGTH(P_TRACK_NAME));
+     V_TRACK_NAME := SUBSTR(V_TRACK_NAME,1,LENGTH(V_TRACK_NAME)-1);
+
+--Check for valid artist and album
+  IF (VALID_ARTIST(P_ARTIST_ID) = 0 AND VALID_ALBUM(P_ARTIST_ID, P_ALBUM_ID) = 0) THEN
+    IF NVL(P_ID,-1) > 0 THEN
+      --Update the record
+        UPDATE MUSIC_APP.TRACKS
+        SET    TRACK_NAME   = V_TRACK_NAME,
+               APP_UPDATED  = P_APP,
+               DATE_UPDATED = SYSDATE
+        WHERE  ID           = P_ID;
+    ELSE
+      --Insert new record
+        INSERT INTO MUSIC_APP.TRACKS(TRACK_NAME,ALBUM_ID, DATE_CREATED,APP_CREATED)
+                              VALUES(V_TRACK_NAME, P_ALBUM_ID, SYSDATE, P_APP)
+                              RETURNING ID INTO O_ID;   
+    END IF;
+  ELSE
+   O_STATUS  := -1;
+   O_MESSAGE := V_PROC_NAME||' - Invalid artist id ['||P_ARTIST_ID||'], album id ['||P_ALBUM_ID||']';
+     MUSIC_APP.MUSIC_COLL_UTIL.LOG_MESSAGE(V_PROC_NAME,O_MESSAGE,V_RET_STATUS, V_RET_MESSAGE);
+  END IF;
+EXCEPTION
+  WHEN OTHERS THEN
+   O_STATUS := -2;
+   O_MESSAGE := 'OTHERS '||V_PROC_NAME||' ['||SUBSTR(SQLERRM,1,200)||'], TRACK_NAME ['||P_TRACK_NAME||'], P_ARTIST_ID ['||P_ARTIST_ID||'], P_ALBUM_ID ['||P_ALBUM_ID||']';
+    BEGIN
+      MUSIC_APP.MUSIC_COLL_UTIL.LOG_MESSAGE(V_PROC_NAME,O_MESSAGE,V_RET_STATUS, V_RET_MESSAGE);
+       IF V_RET_STATUS < 0 THEN
+           DBMS_OUTPUT.PUT_LINE('Unable to log error message, proc ['||V_PROC_NAME||'], MESG ['||V_RET_MESSAGE||']');
+       END IF; 
+    EXCEPTION
+      WHEN OTHERS THEN
+       O_STATUS := -3;
+       DBMS_OUTPUT.PUT_LINE('OTHERS logging error message, proc ['||V_PROC_NAME||'], MESG ['||SUBSTR(SQLERRM,1,200)||']');
+    END;
+END INS_UPD_TRACK;
+
+END;
+/

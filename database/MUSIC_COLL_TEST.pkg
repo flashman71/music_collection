@@ -1,0 +1,333 @@
+/* 
+   Unit test package
+   NOTE:
+        THIS REQUIRES THE UTPLSQL PACKAGE TO BE INSTALLED AND AVAILABLE. 
+           SEE utplsql.org FOR PACKAGE.
+*/
+
+CREATE OR REPLACE PACKAGE MUSIC_APP.MUSIC_COLL_TEST
+AS
+
+--%suite
+
+/*   ********   APP_MESSAGES tests  Begin   **********   */
+--%test
+PROCEDURE INSERT_LOG_SUCCESS;
+
+--%test
+--%throws(-06502)
+PROCEDURE INSERT_LOG_FAIL;
+
+--%test
+PROCEDURE INSERT_LOG_FAIL2;
+/*   ********   APP_MESSAGES tests  End   **********   */
+
+
+/*   ********   ARTISTS tests  Begin   **********   */
+--%test
+--%throws(-06502)
+PROCEDURE INSERT_LOG_FAIL3;
+
+--%test
+--%rollback(manual)
+PROCEDURE INSERT_ARTIST_SUCCESS;
+
+--%test
+PROCEDURE INSERT_ARTIST_FAIL;
+
+--%test
+PROCEDURE INSERT_ARTIST_FAIL2;
+
+--%test
+PROCEDURE INSERT_ARTIST_FAIL3;
+
+--%test
+PROCEDURE INSERT_ARTIST_FAIL4;
+/*   ********   ARTISTS tests  End   **********   */
+
+/*   ********   ALBUM tests  Begin   **********   */
+/*     This test is disabled.  It requires a valid artist to continue */
+--%disabled
+PROCEDURE INSERT_ALBUM_SUCCESS;
+
+--%test
+PROCEDURE INSERT_ALBUM_FAIL;
+
+--%test
+PROCEDURE INSERT_ALBUM_FAIL2;
+
+--%test
+PROCEDURE INSERT_ALBUM_FAIL3;
+
+--%test
+PROCEDURE INSERT_ALBUM_FAIL4;
+/*   ********   ALBUM tests  End   **********   */
+
+/*   ********   Track tests  Begin   **********   */
+/*     This test is disabled.  It requires a valid album to continue */
+--%disabled
+PROCEDURE INSERT_TRACK_SUCCESS;
+
+--%test
+PROCEDURE INSERT_TRACK_FAIL;
+
+--%test
+PROCEDURE INSERT_TRACK_FAIL2;
+
+--%test
+PROCEDURE INSERT_TRACK_FAIL3;
+
+--%test
+PROCEDURE INSERT_TRACK_FAIL4;
+
+--%test
+PROCEDURE INSERT_TRACK_FAIL5;
+/*   ********   Track tests  End   **********   */
+
+END;
+/
+
+CREATE OR REPLACE PACKAGE BODY MUSIC_APP.MUSIC_COLL_TEST
+AS
+
+V_APP     VARCHAR2(110)  := 'TEST-UT1';
+V_APP_BAD VARCHAR2(110)  := 'TEST-UTxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+V_APP_NULL VARCHAR2(110) := NULL;
+V_STATUS  NUMBER         := NULL;
+V_MESSAGE VARCHAR2(500);
+
+V_ID                  NUMBER           := NULL;
+V_VALID_ARTIST_ID     NUMBER           := NULL;
+V_NULL_ID             NUMBER           := NULL;
+V_ARTIST              VARCHAR2(10)     := 'UT-ARTIST';
+V_MBID                VARCHAR2(10)     := 'UT-MBID-1';
+
+V_ALBUM               VARCHAR2(100)    := 'UT-ALBUM1';
+V_TRACK               VARCHAR2(150)    := 'UT-TRACK1';
+
+V_ARTIST_BAD VARCHAR2(110) := 'ARTIST-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+V_MBID_BAD VARCHAR2(110)   := 'MBID---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+V_ALBUM_BAD VARCHAR2(110)  := 'ALBUM--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+V_TRACK_BAD VARCHAR2(151)  := 'ALBUM--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+
+
+PROCEDURE INSERT_LOG_SUCCESS
+IS
+
+
+V_LOG_MSG VARCHAR2(100) := 'Automated unit test for logging app messages';
+
+BEGIN
+   MUSIC_APP.MUSIC_COLL_UTIL.LOG_MESSAGE(V_APP, V_LOG_MSG, V_STATUS,V_LOG_MSG);
+  ut.expect(V_STATUS).TO_EQUAL(0);
+END;
+
+PROCEDURE INSERT_LOG_FAIL
+IS
+
+V_STATUS  NUMBER;
+V_MESSAGE VARCHAR2(500);
+
+V_LOG_MSG VARCHAR2(100) := 'Automated unit test for logging app messages';
+
+BEGIN
+   MUSIC_APP.MUSIC_COLL_UTIL.LOG_MESSAGE(V_APP_BAD, V_LOG_MSG, V_STATUS,V_LOG_MSG);
+  ut.expect(V_STATUS).NOT_TO_EQUAL(0);
+END;
+PROCEDURE INSERT_LOG_FAIL2
+IS
+
+V_STATUS  NUMBER;
+V_MESSAGE VARCHAR2(500);
+
+V_LOG_MSG VARCHAR2(100) := 'Automated unit test for logging app messages';
+
+BEGIN
+   MUSIC_APP.MUSIC_COLL_UTIL.LOG_MESSAGE(V_APP_NULL, V_LOG_MSG, V_STATUS,V_LOG_MSG);
+  ut.expect(V_STATUS).NOT_TO_EQUAL(0);
+END;
+
+PROCEDURE INSERT_LOG_FAIL3
+IS
+
+V_STATUS  NUMBER;
+V_MESSAGE VARCHAR2(500);
+
+V_LOG_MSG VARCHAR2(100) := NULL;
+
+BEGIN
+   MUSIC_APP.MUSIC_COLL_UTIL.LOG_MESSAGE(V_APP, V_LOG_MSG, V_STATUS,V_LOG_MSG);
+  ut.expect(V_STATUS).NOT_TO_EQUAL(0);
+END;
+
+------------------------------
+  /* ***   ARTIST test cases   ***  */
+PROCEDURE INSERT_ARTIST_SUCCESS
+IS
+
+
+BEGIN
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_ARTIST(V_NULL_ID,V_ARTIST,V_MBID,V_APP,V_VALID_ARTIST_ID,V_STATUS,V_MESSAGE);
+   --ut.expect(V_ID).TO_(BE_NOT_NULL);
+   --ut.expect(V_ID).TO_BE_GREATER_THAN(0);
+   ut.expect(V_STATUS).TO_EQUAL(0);
+
+  DBMS_OUTPUT.PUT_LINE('V_VALID_ARTIST_ID ['||V_VALID_ARTIST_ID||']');
+ 
+--  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_ARTIST(V_ID,V_ARTIST,V_MBID,V_APP,V_ID,V_STATUS,V_MESSAGE);
+ --  ut.expect(V_STATUS).TO_EQUAL(0);
+  
+END;
+
+--Exceed artist length
+PROCEDURE INSERT_ARTIST_FAIL
+IS
+
+BEGIN
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_ARTIST(V_NULL_ID,V_ARTIST_BAD,V_MBID,V_APP,V_ID,V_STATUS,V_MESSAGE);
+   ut.expect(V_STATUS).NOT_TO_EQUAL(0);  
+END;
+
+--Exceed mbid length
+PROCEDURE INSERT_ARTIST_FAIL2
+IS
+
+BEGIN
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_ARTIST(V_NULL_ID,V_ARTIST,V_MBID_BAD,V_APP,V_ID,V_STATUS,V_MESSAGE);
+   ut.expect(V_STATUS).NOT_TO_EQUAL(0);  
+END;
+
+--Exceed app length
+PROCEDURE INSERT_ARTIST_FAIL3
+IS
+
+BEGIN
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_ARTIST(V_NULL_ID,V_ARTIST,V_MBID,V_APP_BAD,V_ID,V_STATUS,V_MESSAGE);
+   ut.expect(V_STATUS).NOT_TO_EQUAL(0);  
+END;
+
+--Invalid ID for update
+PROCEDURE INSERT_ARTIST_FAIL4
+IS
+
+BEGIN
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_ARTIST(-9,V_ARTIST,V_MBID,V_APP_BAD,V_ID,V_STATUS,V_MESSAGE);
+   ut.expect(V_STATUS).NOT_TO_EQUAL(0);  
+END;
+
+------------------------------
+  /* ***   ALBUM test cases   ***  */
+
+PROCEDURE INSERT_ALBUM_SUCCESS
+IS
+
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('INSERT_ALBUM_SUCCESS, V_VALID_ARTIST_ID ['||V_VALID_ARTIST_ID||']');
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_ALBUM(V_NULL_ID,V_VALID_ARTIST_ID,V_ALBUM,V_APP,V_ID,V_STATUS,V_MESSAGE);
+   --ut.expect(V_ID).TO_(BE_NOT_NULL);
+   --ut.expect(V_ID).TO_BE_GREATER_THAN(0);
+   ut.expect(V_STATUS).TO_EQUAL(0);
+ 
+END;
+
+--Exceed album length
+PROCEDURE INSERT_ALBUM_FAIL
+IS
+
+BEGIN
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_ALBUM(V_NULL_ID,1,V_ALBUM_BAD,V_APP,V_ID,V_STATUS,V_MESSAGE);
+   ut.expect(V_STATUS).NOT_TO_EQUAL(0);  
+END;
+
+--Null artist id
+PROCEDURE INSERT_ALBUM_FAIL2
+IS
+
+BEGIN
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_ALBUM(V_NULL_ID,NULL,V_ALBUM,V_APP,V_ID,V_STATUS,V_MESSAGE);
+   ut.expect(V_STATUS).NOT_TO_EQUAL(0);  
+END;
+
+--Exceed app length
+PROCEDURE INSERT_ALBUM_FAIL3
+IS
+
+BEGIN
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_ALBUM(V_NULL_ID,1,V_ALBUM,V_APP_BAD,V_ID,V_STATUS,V_MESSAGE);
+   ut.expect(V_STATUS).NOT_TO_EQUAL(0);  
+END;
+
+--Invalid ID for update
+PROCEDURE INSERT_ALBUM_FAIL4
+IS
+
+BEGIN
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_ALBUM(999999,1, V_ALBUM,V_APP,V_ID,V_STATUS,V_MESSAGE);
+   ut.expect(V_STATUS).NOT_TO_EQUAL(0);  
+END;
+
+------------------------------
+  /* ***   TRACK test cases   ***  */
+                        
+PROCEDURE INSERT_TRACK_SUCCESS
+IS
+
+BEGIN
+
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_TRACK(V_NULL_ID,1,1,V_TRACK,V_APP,V_ID,V_STATUS,V_MESSAGE);
+   --ut.expect(V_ID).TO_(BE_NOT_NULL);
+   --ut.expect(V_ID).TO_BE_GREATER_THAN(0);
+   ut.expect(V_STATUS).TO_EQUAL(0);
+ 
+--  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_ARTIST(V_ID,V_ARTIST,V_MBID,V_APP,V_ID,V_STATUS,V_MESSAGE);
+ --  ut.expect(V_STATUS).TO_EQUAL(0);
+  
+END;
+
+--Invalid artist id
+PROCEDURE INSERT_TRACK_FAIL
+IS
+
+BEGIN
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_TRACK(V_NULL_ID,V_NULL_ID,1,V_TRACK,V_APP,V_ID,V_STATUS,V_MESSAGE);
+   ut.expect(V_STATUS).NOT_TO_EQUAL(0);  
+END;
+
+--Invalid album id
+PROCEDURE INSERT_TRACK_FAIL2
+IS
+
+BEGIN
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_TRACK(V_NULL_ID,1,V_NULL_ID,V_TRACK,V_APP,V_ID,V_STATUS,V_MESSAGE);
+   ut.expect(V_STATUS).NOT_TO_EQUAL(0);  
+END;
+
+--Invalid track name
+PROCEDURE INSERT_TRACK_FAIL3
+IS
+
+BEGIN
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_TRACK(V_NULL_ID,1,1,NULL,V_APP,V_ID,V_STATUS,V_MESSAGE);
+   ut.expect(V_STATUS).NOT_TO_EQUAL(0);  
+END;
+
+--Invalid app
+PROCEDURE INSERT_TRACK_FAIL4
+IS
+
+BEGIN
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_TRACK(V_NULL_ID,1,1,V_TRACK,V_APP_BAD,V_ID,V_STATUS,V_MESSAGE);
+   ut.expect(V_STATUS).NOT_TO_EQUAL(0);  
+END;
+
+--Exceed track length
+PROCEDURE INSERT_TRACK_FAIL5
+IS
+
+BEGIN
+  MUSIC_APP.MUSIC_COLL_OPS.INS_UPD_TRACK(V_NULL_ID,1,1,V_TRACK_BAD,V_APP,V_ID,V_STATUS,V_MESSAGE);
+   ut.expect(V_STATUS).NOT_TO_EQUAL(0);  
+END;
+
+END;
+/

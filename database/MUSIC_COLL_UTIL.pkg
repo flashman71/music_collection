@@ -1,0 +1,62 @@
+/* 
+   Package to manage access to audit tables
+*/
+
+CREATE OR REPLACE PACKAGE MUSIC_APP.MUSIC_COLL_UTIL
+AS
+
+PROCEDURE LOG_MESSAGE(P_APP      IN  VARCHAR2,
+                      P_MESSAGE  IN  VARCHAR2,
+                      O_STATUS   OUT NUMBER,
+                      O_MESSAGE  OUT VARCHAR2);
+
+END; 
+/
+
+CREATE OR REPLACE PACKAGE BODY MUSIC_APP.MUSIC_COLL_UTIL
+AS
+
+/* **************************************************************
+    Procedure....: LOG_MESSAGE
+    Description..: Inserts records to APP_MESSAGES table
+    Input(s).....: APP NAME -> calling application/process
+                   MESSAGE  -> message to record in the table
+    Output.......: Status - 0 for success, < 0 for failure
+                   Message - SUCCESS or reason for failure
+   ************************************************************** */
+PROCEDURE LOG_MESSAGE(P_APP      IN  VARCHAR2,
+                      P_MESSAGE  IN  VARCHAR2,
+                      O_STATUS   OUT NUMBER,
+                      O_MESSAGE  OUT VARCHAR2)
+IS
+
+BEGIN
+ --Default return values
+    O_STATUS  := 0;
+    O_MESSAGE := 'SUCCESS';
+
+ IF P_APP IS NULL THEN
+     O_STATUS := -1;
+     O_MESSAGE := 'LOG_MESSAGE: Application must be provided';
+      RETURN;
+ ELSE
+  BEGIN
+     INSERT INTO MUSIC_APP.APP_MESSAGES(APP_NAME,MESSAGE,CREATED) 
+                 VALUES(P_APP, P_MESSAGE, SYSDATE);
+  EXCEPTION
+    WHEN OTHERS THEN
+      O_STATUS := -2;
+      O_MESSAGE := 'LOG_MESSAGE: Error inserting to LOG_MESSAGE ['||SUBSTR(SQLERRM,1,200)||']';
+        RETURN;
+  END;
+ END IF;
+EXCEPTION
+  WHEN OTHERS THEN
+    O_STATUS := -1;
+    O_MESSAGE := 'OTHERS insert to APP_MESSAGES ['||SUBSTR(SQLERRM,1,200)||']';
+    DBMS_OUTPUT.PUT_LINE('OTHERS inserting to APP_MESSAGES: ['||SUBSTR(SQLERRM,1,200)||']');
+      RETURN;
+END LOG_MESSAGE;
+
+END MUSIC_COLL_UTIL;
+/

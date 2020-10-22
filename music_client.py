@@ -21,6 +21,11 @@ APP_NAME = "PY_MUSIC_APP"
 # Default LOG_LEVEL, this can be set here or in the config file
 L_LOG_LEVEL = 'WARNING'
 
+# Default database variables to empty string
+DBTYPE = ""
+DBUSERNAME = ""
+DBPASSWORD = ""
+
 def exit_prog(message):
    message = "Can't fucking find-> " + message
    exit(message)
@@ -62,9 +67,22 @@ with open(r'db/music_collection.rc') as file:
            if os.path.exists(LOG):
                print("Exists! Found: ", LOG)
            else:
-               exit_prog(MC_BASE)
+               exit_prog(LOG)
         if k.split(":")[0] == "LOG_LEVEL":
            L_LOG_LEVEL = k.split(":")[1]
+           
+    db_vars = opt_list["DATABASE"]
+    for k in db_vars.split():
+        if k.split(":")[0] == "TYPE":
+           DBTYPE = k.split(":")[1]
+        if k.split(":")[0] == "DBNAME":
+           DBNAME = k.split(":")[1]
+        if k.split(":")[0] == "USERNAME":
+           DBUSERNAME = k.split(":")[1]
+        if k.split(":")[0] == "DBPASS":
+           DBPASSWORD = k.split(":")[1]
+        if k.split(":")[0] == "DBHOST":
+           DBHOST = k.split(":")[1]
            
 
 #Prepare logging
@@ -113,9 +131,11 @@ if fcont == False:
 fin = open(ARTIST_FILE,"r")
 f_readlines = fin.readlines()
  
-# Open the database connection
-conn = mdb.connectDb('')
-conn = mdb.connectDb('music_app/music_app')
+if DBTYPE != "":
+   # Open the database connection
+   conn = mdb.connectDb(DBTYPE,DBHOST,DBNAME,DBUSERNAME,DBPASSWORD)
+else:
+   logger.warn('No database defined in configuration file')
 
 # Variable used to log location of program if an error is encountered
 statement_id = '0'
@@ -141,7 +161,7 @@ for x in f_readlines:
                        statement_id = '10'
                        if artist_id == -1:
                             statement_id = '11'
-                            artist_id, artist_status, artist_message = mdb.upsert_artist(conn,-1,x.strip(),mbid,APP_NAME)                        
+                            artist_id, artist_status, artist_message = mdb.process_artist(DBTYPE,conn,-1,x.strip(),mbid,APP_NAME)                        
                        else:
                             artist_status = 0
 
@@ -155,7 +175,7 @@ for x in f_readlines:
                        else:
                            statement_id = '15'
                            l_album_name = album['name']
-                           album_id, album_status, album_message = mdb.upsert_album(conn,-1,artist_id,l_album_name,APP_NAME)
+                           album_id, album_status, album_message = mdb.process_album(DBTYPE,conn,-1,artist_id,l_album_name.strip(),APP_NAME)
                            if album_status != 0:
                               logger.error('------Album Return Begin----')
                               logger.error('artist_id: '+ str(artist_id))
@@ -167,9 +187,10 @@ for x in f_readlines:
                                statement_id = '25'
                                for track in a_info['album']['tracks']['track']:
                                    statement_id = '30'
-                                   l_track_name = str(track['name'].encode('utf-8'))
+                                   #l_track_name = str(track['name'].encode('utf-8'))
+                                   l_track_name = track['name']
                                    statement_id = '31'
-                                   track_id, track_status,track_message = mdb.upsert_track(conn,-1,artist_id,album_id,l_track_name,APP_NAME)
+                                   track_id, track_status,track_message = mdb.process_track(DBTYPE,conn,-1,artist_id,album_id,l_track_name,APP_NAME)
                                    statement_id = '32'
                                    if track_status != 0:
                                       logger.error('---------Track Error Begin------')

@@ -8,7 +8,7 @@ import music_database as mdb
 import music_services as ms
 from neo4j import GraphDatabase, basic_auth
 
-driver = GraphDatabase.driver("bolt://lemieux:7687", auth=("neo4j", "weasel"),encrypted=False)
+driver = GraphDatabase.driver("bolt://galileo:7687", auth=("neo4j", "neo5j"),encrypted=False)
 
 def add_artist(tx, name, artist_name):
     tx.run("MERGE (a:Artist {name: $name}) "

@@ -1,0 +1,868 @@
+2020-10-22 08:56:23,957 ERROR Error, skipping artist, Bad Cop,Bad Cop
+2020-10-22 08:57:52,935 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:52,935 ERROR statement_id:32
+2020-10-22 08:57:52,935 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:52,935 ERROR ...artist_id->-1
+2020-10-22 08:57:52,935 ERROR ...album_id:1336
+2020-10-22 08:57:52,935 ERROR ...track:Copkiller
+2020-10-22 08:57:53,187 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:53,187 ERROR statement_id:32
+2020-10-22 08:57:53,187 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:53,187 ERROR ...artist_id->-1
+2020-10-22 08:57:53,188 ERROR ...album_id:1336
+2020-10-22 08:57:53,188 ERROR ...track:Copkiller
+2020-10-22 08:57:53,424 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:53,424 ERROR statement_id:32
+2020-10-22 08:57:53,424 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:53,424 ERROR ...artist_id->-1
+2020-10-22 08:57:53,424 ERROR ...album_id:1336
+2020-10-22 08:57:53,424 ERROR ...track:Copkiller
+2020-10-22 08:57:53,970 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:53,970 ERROR statement_id:32
+2020-10-22 08:57:53,970 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:53,970 ERROR ...artist_id->-1
+2020-10-22 08:57:53,970 ERROR ...album_id:1336
+2020-10-22 08:57:53,970 ERROR ...track:Copkiller
+2020-10-22 08:57:54,212 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:54,213 ERROR statement_id:32
+2020-10-22 08:57:54,213 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:54,213 ERROR ...artist_id->-1
+2020-10-22 08:57:54,213 ERROR ...album_id:1336
+2020-10-22 08:57:54,213 ERROR ...track:Copkiller
+2020-10-22 08:57:54,463 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:54,463 ERROR statement_id:32
+2020-10-22 08:57:54,463 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:54,464 ERROR ...artist_id->-1
+2020-10-22 08:57:54,464 ERROR ...album_id:1336
+2020-10-22 08:57:54,464 ERROR ...track:Copkiller
+2020-10-22 08:57:54,705 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:54,705 ERROR statement_id:32
+2020-10-22 08:57:54,705 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:54,705 ERROR ...artist_id->-1
+2020-10-22 08:57:54,705 ERROR ...album_id:1336
+2020-10-22 08:57:54,706 ERROR ...track:Copkiller
+2020-10-22 08:57:55,243 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:55,243 ERROR statement_id:32
+2020-10-22 08:57:55,243 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:55,243 ERROR ...artist_id->-1
+2020-10-22 08:57:55,243 ERROR ...album_id:1336
+2020-10-22 08:57:55,243 ERROR ...track:Copkiller
+2020-10-22 08:57:55,487 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:55,487 ERROR statement_id:32
+2020-10-22 08:57:55,487 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:55,487 ERROR ...artist_id->-1
+2020-10-22 08:57:55,487 ERROR ...album_id:1336
+2020-10-22 08:57:55,488 ERROR ...track:Copkiller
+2020-10-22 08:57:55,732 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:55,732 ERROR statement_id:32
+2020-10-22 08:57:55,732 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:55,733 ERROR ...artist_id->-1
+2020-10-22 08:57:55,733 ERROR ...album_id:1336
+2020-10-22 08:57:55,733 ERROR ...track:Copkiller
+2020-10-22 08:57:55,977 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:55,977 ERROR statement_id:32
+2020-10-22 08:57:55,977 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:55,978 ERROR ...artist_id->-1
+2020-10-22 08:57:55,978 ERROR ...album_id:1336
+2020-10-22 08:57:55,978 ERROR ...track:Copkiller
+2020-10-22 08:57:56,224 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:56,224 ERROR statement_id:32
+2020-10-22 08:57:56,225 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:56,225 ERROR ...artist_id->-1
+2020-10-22 08:57:56,225 ERROR ...album_id:1336
+2020-10-22 08:57:56,225 ERROR ...track:Copkiller
+2020-10-22 08:57:56,465 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:56,465 ERROR statement_id:32
+2020-10-22 08:57:56,465 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:56,465 ERROR ...artist_id->-1
+2020-10-22 08:57:56,465 ERROR ...album_id:1336
+2020-10-22 08:57:56,465 ERROR ...track:Copkiller
+2020-10-22 08:57:56,974 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:56,974 ERROR statement_id:32
+2020-10-22 08:57:56,974 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:56,974 ERROR ...artist_id->-1
+2020-10-22 08:57:56,974 ERROR ...album_id:1336
+2020-10-22 08:57:56,974 ERROR ...track:Copkiller
+2020-10-22 08:57:57,222 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:57,222 ERROR statement_id:32
+2020-10-22 08:57:57,223 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:57,223 ERROR ...artist_id->-1
+2020-10-22 08:57:57,223 ERROR ...album_id:1336
+2020-10-22 08:57:57,223 ERROR ...track:Copkiller
+2020-10-22 08:57:57,466 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:57,466 ERROR statement_id:32
+2020-10-22 08:57:57,466 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:57,466 ERROR ...artist_id->-1
+2020-10-22 08:57:57,466 ERROR ...album_id:1336
+2020-10-22 08:57:57,467 ERROR ...track:Copkiller
+2020-10-22 08:57:57,715 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:57,715 ERROR statement_id:32
+2020-10-22 08:57:57,715 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:57,716 ERROR ...artist_id->-1
+2020-10-22 08:57:57,716 ERROR ...album_id:1336
+2020-10-22 08:57:57,716 ERROR ...track:Copkiller
+2020-10-22 08:57:57,961 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:57,961 ERROR statement_id:32
+2020-10-22 08:57:57,961 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:57,961 ERROR ...artist_id->-1
+2020-10-22 08:57:57,961 ERROR ...album_id:1336
+2020-10-22 08:57:57,961 ERROR ...track:Copkiller
+2020-10-22 08:57:58,206 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:58,206 ERROR statement_id:32
+2020-10-22 08:57:58,206 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:58,206 ERROR ...artist_id->-1
+2020-10-22 08:57:58,206 ERROR ...album_id:1336
+2020-10-22 08:57:58,207 ERROR ...track:Copkiller
+2020-10-22 08:57:58,454 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:58,454 ERROR statement_id:32
+2020-10-22 08:57:58,454 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:58,454 ERROR ...artist_id->-1
+2020-10-22 08:57:58,454 ERROR ...album_id:1336
+2020-10-22 08:57:58,454 ERROR ...track:Copkiller
+2020-10-22 08:57:58,707 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:58,708 ERROR statement_id:32
+2020-10-22 08:57:58,708 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:58,708 ERROR ...artist_id->-1
+2020-10-22 08:57:58,708 ERROR ...album_id:1336
+2020-10-22 08:57:58,708 ERROR ...track:Copkiller
+2020-10-22 08:57:58,961 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:58,961 ERROR statement_id:32
+2020-10-22 08:57:58,961 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:58,961 ERROR ...artist_id->-1
+2020-10-22 08:57:58,961 ERROR ...album_id:1336
+2020-10-22 08:57:58,961 ERROR ...track:Copkiller
+2020-10-22 08:57:59,194 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:59,195 ERROR statement_id:32
+2020-10-22 08:57:59,195 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:59,195 ERROR ...artist_id->-1
+2020-10-22 08:57:59,195 ERROR ...album_id:1336
+2020-10-22 08:57:59,195 ERROR ...track:Copkiller
+2020-10-22 08:57:59,439 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:59,439 ERROR statement_id:32
+2020-10-22 08:57:59,439 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:59,439 ERROR ...artist_id->-1
+2020-10-22 08:57:59,439 ERROR ...album_id:1336
+2020-10-22 08:57:59,439 ERROR ...track:Copkiller
+2020-10-22 08:57:59,675 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:59,675 ERROR statement_id:32
+2020-10-22 08:57:59,675 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:59,675 ERROR ...artist_id->-1
+2020-10-22 08:57:59,675 ERROR ...album_id:1336
+2020-10-22 08:57:59,675 ERROR ...track:Copkiller
+2020-10-22 08:57:59,918 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:57:59,918 ERROR statement_id:32
+2020-10-22 08:57:59,919 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:57:59,919 ERROR ...artist_id->-1
+2020-10-22 08:57:59,919 ERROR ...album_id:1336
+2020-10-22 08:57:59,919 ERROR ...track:Copkiller
+2020-10-22 08:58:00,165 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:00,165 ERROR statement_id:32
+2020-10-22 08:58:00,165 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:00,165 ERROR ...artist_id->-1
+2020-10-22 08:58:00,165 ERROR ...album_id:1336
+2020-10-22 08:58:00,165 ERROR ...track:Copkiller
+2020-10-22 08:58:00,407 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:00,407 ERROR statement_id:32
+2020-10-22 08:58:00,407 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:00,407 ERROR ...artist_id->-1
+2020-10-22 08:58:00,407 ERROR ...album_id:1336
+2020-10-22 08:58:00,407 ERROR ...track:Copkiller
+2020-10-22 08:58:00,656 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:00,656 ERROR statement_id:32
+2020-10-22 08:58:00,656 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:00,656 ERROR ...artist_id->-1
+2020-10-22 08:58:00,656 ERROR ...album_id:1336
+2020-10-22 08:58:00,656 ERROR ...track:Copkiller
+2020-10-22 08:58:00,910 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:00,910 ERROR statement_id:32
+2020-10-22 08:58:00,910 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:00,910 ERROR ...artist_id->-1
+2020-10-22 08:58:00,910 ERROR ...album_id:1336
+2020-10-22 08:58:00,910 ERROR ...track:Copkiller
+2020-10-22 08:58:01,148 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:01,149 ERROR statement_id:32
+2020-10-22 08:58:01,149 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:01,149 ERROR ...artist_id->-1
+2020-10-22 08:58:01,149 ERROR ...album_id:1336
+2020-10-22 08:58:01,149 ERROR ...track:Copkiller
+2020-10-22 08:58:01,392 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:01,393 ERROR statement_id:32
+2020-10-22 08:58:01,393 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:01,393 ERROR ...artist_id->-1
+2020-10-22 08:58:01,393 ERROR ...album_id:1336
+2020-10-22 08:58:01,393 ERROR ...track:Copkiller
+2020-10-22 08:58:01,632 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:01,632 ERROR statement_id:32
+2020-10-22 08:58:01,632 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:01,632 ERROR ...artist_id->-1
+2020-10-22 08:58:01,632 ERROR ...album_id:1336
+2020-10-22 08:58:01,632 ERROR ...track:Copkiller
+2020-10-22 08:58:01,873 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:01,873 ERROR statement_id:32
+2020-10-22 08:58:01,873 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:01,873 ERROR ...artist_id->-1
+2020-10-22 08:58:01,873 ERROR ...album_id:1336
+2020-10-22 08:58:01,873 ERROR ...track:Copkiller
+2020-10-22 08:58:02,360 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:02,361 ERROR statement_id:32
+2020-10-22 08:58:02,361 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:02,361 ERROR ...artist_id->-1
+2020-10-22 08:58:02,361 ERROR ...album_id:1336
+2020-10-22 08:58:02,361 ERROR ...track:Copkiller
+2020-10-22 08:58:02,606 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:02,606 ERROR statement_id:32
+2020-10-22 08:58:02,606 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:02,606 ERROR ...artist_id->-1
+2020-10-22 08:58:02,606 ERROR ...album_id:1336
+2020-10-22 08:58:02,607 ERROR ...track:Copkiller
+2020-10-22 08:58:02,846 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:02,846 ERROR statement_id:32
+2020-10-22 08:58:02,846 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:02,846 ERROR ...artist_id->-1
+2020-10-22 08:58:02,846 ERROR ...album_id:1336
+2020-10-22 08:58:02,846 ERROR ...track:Copkiller
+2020-10-22 08:58:03,093 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:03,094 ERROR statement_id:32
+2020-10-22 08:58:03,094 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:03,094 ERROR ...artist_id->-1
+2020-10-22 08:58:03,094 ERROR ...album_id:1336
+2020-10-22 08:58:03,094 ERROR ...track:Copkiller
+2020-10-22 08:58:03,336 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:03,336 ERROR statement_id:32
+2020-10-22 08:58:03,336 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:03,337 ERROR ...artist_id->-1
+2020-10-22 08:58:03,337 ERROR ...album_id:1336
+2020-10-22 08:58:03,337 ERROR ...track:Copkiller
+2020-10-22 08:58:03,580 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:03,580 ERROR statement_id:32
+2020-10-22 08:58:03,580 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:03,580 ERROR ...artist_id->-1
+2020-10-22 08:58:03,580 ERROR ...album_id:1336
+2020-10-22 08:58:03,580 ERROR ...track:Copkiller
+2020-10-22 08:58:03,820 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:03,820 ERROR statement_id:32
+2020-10-22 08:58:03,820 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:03,820 ERROR ...artist_id->-1
+2020-10-22 08:58:03,820 ERROR ...album_id:1336
+2020-10-22 08:58:03,820 ERROR ...track:Copkiller
+2020-10-22 08:58:04,059 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:04,059 ERROR statement_id:32
+2020-10-22 08:58:04,059 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:04,059 ERROR ...artist_id->-1
+2020-10-22 08:58:04,059 ERROR ...album_id:1336
+2020-10-22 08:58:04,059 ERROR ...track:Copkiller
+2020-10-22 08:58:04,305 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:04,305 ERROR statement_id:32
+2020-10-22 08:58:04,305 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:04,305 ERROR ...artist_id->-1
+2020-10-22 08:58:04,305 ERROR ...album_id:1336
+2020-10-22 08:58:04,305 ERROR ...track:Copkiller
+2020-10-22 08:58:09,477 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:09,477 ERROR statement_id:32
+2020-10-22 08:58:09,477 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:09,477 ERROR ...artist_id->-1
+2020-10-22 08:58:09,477 ERROR ...album_id:1336
+2020-10-22 08:58:09,477 ERROR ...track:Copkiller
+2020-10-22 08:58:09,722 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 08:58:09,722 ERROR statement_id:32
+2020-10-22 08:58:09,722 ERROR ...artist->Booker T and the MGs
+2020-10-22 08:58:09,722 ERROR ...artist_id->-1
+2020-10-22 08:58:09,722 ERROR ...album_id:1336
+2020-10-22 08:58:09,722 ERROR ...track:Copkiller
+2020-10-22 08:59:22,272 ERROR Error, skipping artist, D.R.I
+2020-10-22 09:00:06,974 ERROR Error, skipping artist, Exploited
+2020-10-22 09:00:07,768 ERROR Error, skipping artist, Fever 333
+2020-10-22 09:01:06,852 ERROR ---------Track Error Begin------
+2020-10-22 09:01:06,852 ERROR  status:-1
+2020-10-22 09:01:06,852 ERROR  message:EXCEPTION PROCESS_TRACKS, Track [American Idiot - Feat. John Gallagher Jr., Stark Sands, Michael Esper, Rebecca Naomi Jones, Christina Sajous, Mary Faber, Tony Vincent, Company [Album Version]], Error [22001], Message [value too long for type character varying(150)]
+2020-10-22 09:01:06,852 ERROR  artist_id:79
+2020-10-22 09:01:06,852 ERROR  album_id:1496
+2020-10-22 09:01:06,852 ERROR ---------Track Error End------
+2020-10-22 09:01:06,860 ERROR ---------Track Error Begin------
+2020-10-22 09:01:06,860 ERROR  status:-1
+2020-10-22 09:01:06,860 ERROR  message:EXCEPTION PROCESS_TRACKS, Track [Jesus Of Suburbia - I. Jesus Of Suburbia/II. City Of The Damned/III. I Don't Care/IV. Dearly Beloved/V. Tales Of Another Broken Home feat. Green Day & The Cast Of American Idiot [Feat. John Gallagher Jr., Michael Esper, Stark Sands, Mary Faber, Company]], Error [22001], Message [value too long for type character varying(150)]
+2020-10-22 09:01:06,860 ERROR  artist_id:79
+2020-10-22 09:01:06,860 ERROR  album_id:1496
+2020-10-22 09:01:06,860 ERROR ---------Track Error End------
+2020-10-22 09:01:06,918 ERROR ---------Track Error Begin------
+2020-10-22 09:01:06,919 ERROR  status:-1
+2020-10-22 09:01:06,919 ERROR  message:EXCEPTION PROCESS_TRACKS, Track [Last Of The American Girls/She's A Rebel - Feat. John Gallagher Jr., Gerard Canonico, Chase Peacock, Rebecca Naomi Jones, Tony Vincent, Company [Album Version]], Error [22001], Message [value too long for type character varying(150)]
+2020-10-22 09:01:06,919 ERROR  artist_id:79
+2020-10-22 09:01:06,919 ERROR  album_id:1496
+2020-10-22 09:01:06,919 ERROR ---------Track Error End------
+2020-10-22 09:01:07,010 ERROR ---------Track Error Begin------
+2020-10-22 09:01:07,010 ERROR  status:-1
+2020-10-22 09:01:07,010 ERROR  message:EXCEPTION PROCESS_TRACKS, Track [Homecoming - I. The Death Of St. Jimmy/II. East 12th St./III. Nobody Likes You/IV. Rock And Roll Girlfriend/V. We're Coming Home Again [feat. Green Day & The Cast of American Idiot]], Error [22001], Message [value too long for type character varying(150)]
+2020-10-22 09:01:07,010 ERROR  artist_id:79
+2020-10-22 09:01:07,010 ERROR  album_id:1496
+2020-10-22 09:01:07,010 ERROR ---------Track Error End------
+2020-10-22 09:02:20,574 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:20,574 ERROR statement_id:32
+2020-10-22 09:02:20,574 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:20,574 ERROR ...artist_id->-1
+2020-10-22 09:02:20,574 ERROR ...album_id:1589
+2020-10-22 09:02:20,574 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:21,106 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:21,106 ERROR statement_id:32
+2020-10-22 09:02:21,106 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:21,106 ERROR ...artist_id->-1
+2020-10-22 09:02:21,106 ERROR ...album_id:1589
+2020-10-22 09:02:21,106 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:21,348 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:21,348 ERROR statement_id:32
+2020-10-22 09:02:21,348 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:21,348 ERROR ...artist_id->-1
+2020-10-22 09:02:21,349 ERROR ...album_id:1589
+2020-10-22 09:02:21,349 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:21,588 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:21,588 ERROR statement_id:32
+2020-10-22 09:02:21,588 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:21,588 ERROR ...artist_id->-1
+2020-10-22 09:02:21,588 ERROR ...album_id:1589
+2020-10-22 09:02:21,588 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:21,828 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:21,829 ERROR statement_id:32
+2020-10-22 09:02:21,829 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:21,829 ERROR ...artist_id->-1
+2020-10-22 09:02:21,829 ERROR ...album_id:1589
+2020-10-22 09:02:21,829 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:22,328 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:22,328 ERROR statement_id:32
+2020-10-22 09:02:22,328 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:22,328 ERROR ...artist_id->-1
+2020-10-22 09:02:22,328 ERROR ...album_id:1589
+2020-10-22 09:02:22,329 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:22,856 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:22,856 ERROR statement_id:32
+2020-10-22 09:02:22,856 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:22,856 ERROR ...artist_id->-1
+2020-10-22 09:02:22,856 ERROR ...album_id:1589
+2020-10-22 09:02:22,856 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:23,381 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:23,381 ERROR statement_id:32
+2020-10-22 09:02:23,381 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:23,381 ERROR ...artist_id->-1
+2020-10-22 09:02:23,381 ERROR ...album_id:1589
+2020-10-22 09:02:23,381 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:23,895 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:23,895 ERROR statement_id:32
+2020-10-22 09:02:23,895 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:23,895 ERROR ...artist_id->-1
+2020-10-22 09:02:23,896 ERROR ...album_id:1589
+2020-10-22 09:02:23,896 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:24,134 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:24,135 ERROR statement_id:32
+2020-10-22 09:02:24,135 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:24,135 ERROR ...artist_id->-1
+2020-10-22 09:02:24,135 ERROR ...album_id:1589
+2020-10-22 09:02:24,135 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:24,378 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:24,378 ERROR statement_id:32
+2020-10-22 09:02:24,378 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:24,378 ERROR ...artist_id->-1
+2020-10-22 09:02:24,378 ERROR ...album_id:1589
+2020-10-22 09:02:24,378 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:24,945 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:24,945 ERROR statement_id:32
+2020-10-22 09:02:24,946 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:24,946 ERROR ...artist_id->-1
+2020-10-22 09:02:24,946 ERROR ...album_id:1589
+2020-10-22 09:02:24,946 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:25,184 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:25,185 ERROR statement_id:32
+2020-10-22 09:02:25,185 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:25,185 ERROR ...artist_id->-1
+2020-10-22 09:02:25,185 ERROR ...album_id:1589
+2020-10-22 09:02:25,185 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:25,422 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:25,422 ERROR statement_id:32
+2020-10-22 09:02:25,422 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:25,422 ERROR ...artist_id->-1
+2020-10-22 09:02:25,422 ERROR ...album_id:1589
+2020-10-22 09:02:25,422 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:25,956 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:25,956 ERROR statement_id:32
+2020-10-22 09:02:25,957 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:25,957 ERROR ...artist_id->-1
+2020-10-22 09:02:25,957 ERROR ...album_id:1589
+2020-10-22 09:02:25,957 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:26,199 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:26,199 ERROR statement_id:32
+2020-10-22 09:02:26,199 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:26,199 ERROR ...artist_id->-1
+2020-10-22 09:02:26,199 ERROR ...album_id:1589
+2020-10-22 09:02:26,199 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:26,436 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:26,436 ERROR statement_id:32
+2020-10-22 09:02:26,436 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:26,436 ERROR ...artist_id->-1
+2020-10-22 09:02:26,436 ERROR ...album_id:1589
+2020-10-22 09:02:26,436 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:26,681 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:26,681 ERROR statement_id:32
+2020-10-22 09:02:26,681 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:26,681 ERROR ...artist_id->-1
+2020-10-22 09:02:26,682 ERROR ...album_id:1589
+2020-10-22 09:02:26,682 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:26,921 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:26,921 ERROR statement_id:32
+2020-10-22 09:02:26,921 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:26,921 ERROR ...artist_id->-1
+2020-10-22 09:02:26,921 ERROR ...album_id:1589
+2020-10-22 09:02:26,921 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:27,165 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:27,165 ERROR statement_id:32
+2020-10-22 09:02:27,165 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:27,165 ERROR ...artist_id->-1
+2020-10-22 09:02:27,165 ERROR ...album_id:1589
+2020-10-22 09:02:27,165 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:27,716 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:27,716 ERROR statement_id:32
+2020-10-22 09:02:27,716 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:27,716 ERROR ...artist_id->-1
+2020-10-22 09:02:27,716 ERROR ...album_id:1589
+2020-10-22 09:02:27,716 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:27,950 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:27,950 ERROR statement_id:32
+2020-10-22 09:02:27,950 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:27,950 ERROR ...artist_id->-1
+2020-10-22 09:02:27,950 ERROR ...album_id:1589
+2020-10-22 09:02:27,950 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:28,194 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:28,194 ERROR statement_id:32
+2020-10-22 09:02:28,194 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:28,194 ERROR ...artist_id->-1
+2020-10-22 09:02:28,194 ERROR ...album_id:1589
+2020-10-22 09:02:28,194 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:28,445 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:28,445 ERROR statement_id:32
+2020-10-22 09:02:28,446 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:28,446 ERROR ...artist_id->-1
+2020-10-22 09:02:28,446 ERROR ...album_id:1589
+2020-10-22 09:02:28,446 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:28,696 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:28,696 ERROR statement_id:32
+2020-10-22 09:02:28,696 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:28,696 ERROR ...artist_id->-1
+2020-10-22 09:02:28,697 ERROR ...album_id:1589
+2020-10-22 09:02:28,697 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:29,537 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:29,537 ERROR statement_id:32
+2020-10-22 09:02:29,537 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:29,537 ERROR ...artist_id->-1
+2020-10-22 09:02:29,537 ERROR ...album_id:1589
+2020-10-22 09:02:29,537 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:29,777 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:29,777 ERROR statement_id:32
+2020-10-22 09:02:29,777 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:29,777 ERROR ...artist_id->-1
+2020-10-22 09:02:29,777 ERROR ...album_id:1589
+2020-10-22 09:02:29,777 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:30,279 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:30,279 ERROR statement_id:32
+2020-10-22 09:02:30,279 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:30,279 ERROR ...artist_id->-1
+2020-10-22 09:02:30,279 ERROR ...album_id:1589
+2020-10-22 09:02:30,279 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:30,525 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:30,525 ERROR statement_id:32
+2020-10-22 09:02:30,525 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:30,525 ERROR ...artist_id->-1
+2020-10-22 09:02:30,525 ERROR ...album_id:1589
+2020-10-22 09:02:30,525 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:30,764 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:30,764 ERROR statement_id:32
+2020-10-22 09:02:30,764 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:30,764 ERROR ...artist_id->-1
+2020-10-22 09:02:30,764 ERROR ...album_id:1589
+2020-10-22 09:02:30,764 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:31,010 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:31,010 ERROR statement_id:32
+2020-10-22 09:02:31,010 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:31,010 ERROR ...artist_id->-1
+2020-10-22 09:02:31,010 ERROR ...album_id:1589
+2020-10-22 09:02:31,010 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:31,248 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:31,248 ERROR statement_id:32
+2020-10-22 09:02:31,248 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:31,248 ERROR ...artist_id->-1
+2020-10-22 09:02:31,248 ERROR ...album_id:1589
+2020-10-22 09:02:31,248 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:31,492 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:31,493 ERROR statement_id:32
+2020-10-22 09:02:31,493 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:31,493 ERROR ...artist_id->-1
+2020-10-22 09:02:31,493 ERROR ...album_id:1589
+2020-10-22 09:02:31,493 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:32,055 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:32,055 ERROR statement_id:32
+2020-10-22 09:02:32,055 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:32,055 ERROR ...artist_id->-1
+2020-10-22 09:02:32,055 ERROR ...album_id:1589
+2020-10-22 09:02:32,055 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:32,299 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:32,299 ERROR statement_id:32
+2020-10-22 09:02:32,299 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:32,299 ERROR ...artist_id->-1
+2020-10-22 09:02:32,299 ERROR ...album_id:1589
+2020-10-22 09:02:32,299 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:32,817 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:32,817 ERROR statement_id:32
+2020-10-22 09:02:32,817 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:32,817 ERROR ...artist_id->-1
+2020-10-22 09:02:32,817 ERROR ...album_id:1589
+2020-10-22 09:02:32,818 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:02:33,074 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:02:33,074 ERROR statement_id:32
+2020-10-22 09:02:33,074 ERROR ...artist->Iggy and the Stooges
+2020-10-22 09:02:33,074 ERROR ...artist_id->-1
+2020-10-22 09:02:33,074 ERROR ...album_id:1589
+2020-10-22 09:02:33,074 ERROR ...track:Boondoccs - Feat. Leebo
+2020-10-22 09:08:45,913 ERROR Error, skipping artist, Motorhead
+2020-10-22 09:12:36,801 ERROR Error, skipping artist, Phil Campbell and the Bastard Sons
+2020-10-22 09:12:37,212 ERROR Error, skipping artist, Propaghandi
+2020-10-22 09:13:26,070 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:26,070 ERROR statement_id:32
+2020-10-22 09:13:26,070 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:26,070 ERROR ...artist_id->-1
+2020-10-22 09:13:26,070 ERROR ...album_id:2252
+2020-10-22 09:13:26,070 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:28,282 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:28,282 ERROR statement_id:32
+2020-10-22 09:13:28,282 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:28,282 ERROR ...artist_id->-1
+2020-10-22 09:13:28,282 ERROR ...album_id:2252
+2020-10-22 09:13:28,282 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:29,821 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:29,821 ERROR statement_id:32
+2020-10-22 09:13:29,821 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:29,821 ERROR ...artist_id->-1
+2020-10-22 09:13:29,821 ERROR ...album_id:2252
+2020-10-22 09:13:29,821 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:30,064 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:30,065 ERROR statement_id:32
+2020-10-22 09:13:30,065 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:30,065 ERROR ...artist_id->-1
+2020-10-22 09:13:30,065 ERROR ...album_id:2252
+2020-10-22 09:13:30,065 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:30,580 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:30,580 ERROR statement_id:32
+2020-10-22 09:13:30,580 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:30,580 ERROR ...artist_id->-1
+2020-10-22 09:13:30,581 ERROR ...album_id:2252
+2020-10-22 09:13:30,581 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:31,320 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:31,320 ERROR statement_id:32
+2020-10-22 09:13:31,320 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:31,321 ERROR ...artist_id->-1
+2020-10-22 09:13:31,321 ERROR ...album_id:2252
+2020-10-22 09:13:31,321 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:31,996 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:31,996 ERROR statement_id:32
+2020-10-22 09:13:31,996 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:31,996 ERROR ...artist_id->-1
+2020-10-22 09:13:31,996 ERROR ...album_id:2252
+2020-10-22 09:13:31,996 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:32,237 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:32,237 ERROR statement_id:32
+2020-10-22 09:13:32,237 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:32,237 ERROR ...artist_id->-1
+2020-10-22 09:13:32,237 ERROR ...album_id:2252
+2020-10-22 09:13:32,237 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:32,481 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:32,482 ERROR statement_id:32
+2020-10-22 09:13:32,482 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:32,482 ERROR ...artist_id->-1
+2020-10-22 09:13:32,482 ERROR ...album_id:2252
+2020-10-22 09:13:32,482 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:36,815 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:36,815 ERROR statement_id:32
+2020-10-22 09:13:36,815 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:36,815 ERROR ...artist_id->-1
+2020-10-22 09:13:36,815 ERROR ...album_id:2252
+2020-10-22 09:13:36,815 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:37,565 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:37,566 ERROR statement_id:32
+2020-10-22 09:13:37,566 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:37,566 ERROR ...artist_id->-1
+2020-10-22 09:13:37,566 ERROR ...album_id:2252
+2020-10-22 09:13:37,566 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:38,087 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:38,087 ERROR statement_id:32
+2020-10-22 09:13:38,087 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:38,088 ERROR ...artist_id->-1
+2020-10-22 09:13:38,088 ERROR ...album_id:2252
+2020-10-22 09:13:38,088 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:38,330 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:38,330 ERROR statement_id:32
+2020-10-22 09:13:38,331 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:38,331 ERROR ...artist_id->-1
+2020-10-22 09:13:38,331 ERROR ...album_id:2252
+2020-10-22 09:13:38,331 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:39,335 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:39,335 ERROR statement_id:32
+2020-10-22 09:13:39,335 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:39,335 ERROR ...artist_id->-1
+2020-10-22 09:13:39,335 ERROR ...album_id:2252
+2020-10-22 09:13:39,335 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:39,883 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:39,883 ERROR statement_id:32
+2020-10-22 09:13:39,883 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:39,883 ERROR ...artist_id->-1
+2020-10-22 09:13:39,883 ERROR ...album_id:2252
+2020-10-22 09:13:39,883 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:40,126 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:40,126 ERROR statement_id:32
+2020-10-22 09:13:40,126 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:40,126 ERROR ...artist_id->-1
+2020-10-22 09:13:40,127 ERROR ...album_id:2252
+2020-10-22 09:13:40,127 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:40,796 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:40,796 ERROR statement_id:32
+2020-10-22 09:13:40,796 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:40,796 ERROR ...artist_id->-1
+2020-10-22 09:13:40,796 ERROR ...album_id:2252
+2020-10-22 09:13:40,796 ERROR ...track:One Hit Wonderful
+2020-10-22 09:13:41,041 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:13:41,041 ERROR statement_id:32
+2020-10-22 09:13:41,041 ERROR ...artist->Rolling Stones
+2020-10-22 09:13:41,041 ERROR ...artist_id->-1
+2020-10-22 09:13:41,042 ERROR ...album_id:2252
+2020-10-22 09:13:41,042 ERROR ...track:One Hit Wonderful
+2020-10-22 09:19:08,328 ERROR Error, skipping artist, The Potato Pirates
+2020-10-22 09:19:09,725 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:09,725 ERROR statement_id:32
+2020-10-22 09:19:09,725 ERROR ...artist->TSOL
+2020-10-22 09:19:09,725 ERROR ...artist_id->-1
+2020-10-22 09:19:09,726 ERROR ...album_id:2605
+2020-10-22 09:19:09,726 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:10,457 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:10,457 ERROR statement_id:32
+2020-10-22 09:19:10,457 ERROR ...artist->TSOL
+2020-10-22 09:19:10,457 ERROR ...artist_id->-1
+2020-10-22 09:19:10,458 ERROR ...album_id:2605
+2020-10-22 09:19:10,458 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:11,003 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:11,003 ERROR statement_id:32
+2020-10-22 09:19:11,003 ERROR ...artist->TSOL
+2020-10-22 09:19:11,003 ERROR ...artist_id->-1
+2020-10-22 09:19:11,003 ERROR ...album_id:2605
+2020-10-22 09:19:11,003 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:11,251 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:11,251 ERROR statement_id:32
+2020-10-22 09:19:11,251 ERROR ...artist->TSOL
+2020-10-22 09:19:11,251 ERROR ...artist_id->-1
+2020-10-22 09:19:11,251 ERROR ...album_id:2605
+2020-10-22 09:19:11,251 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:11,775 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:11,775 ERROR statement_id:32
+2020-10-22 09:19:11,775 ERROR ...artist->TSOL
+2020-10-22 09:19:11,775 ERROR ...artist_id->-1
+2020-10-22 09:19:11,776 ERROR ...album_id:2605
+2020-10-22 09:19:11,776 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:12,020 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:12,020 ERROR statement_id:32
+2020-10-22 09:19:12,020 ERROR ...artist->TSOL
+2020-10-22 09:19:12,020 ERROR ...artist_id->-1
+2020-10-22 09:19:12,020 ERROR ...album_id:2605
+2020-10-22 09:19:12,020 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:12,258 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:12,258 ERROR statement_id:32
+2020-10-22 09:19:12,258 ERROR ...artist->TSOL
+2020-10-22 09:19:12,259 ERROR ...artist_id->-1
+2020-10-22 09:19:12,259 ERROR ...album_id:2605
+2020-10-22 09:19:12,259 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:12,941 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:12,941 ERROR statement_id:32
+2020-10-22 09:19:12,941 ERROR ...artist->TSOL
+2020-10-22 09:19:12,941 ERROR ...artist_id->-1
+2020-10-22 09:19:12,941 ERROR ...album_id:2605
+2020-10-22 09:19:12,941 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:13,195 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:13,195 ERROR statement_id:32
+2020-10-22 09:19:13,195 ERROR ...artist->TSOL
+2020-10-22 09:19:13,195 ERROR ...artist_id->-1
+2020-10-22 09:19:13,195 ERROR ...album_id:2605
+2020-10-22 09:19:13,195 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:13,438 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:13,438 ERROR statement_id:32
+2020-10-22 09:19:13,438 ERROR ...artist->TSOL
+2020-10-22 09:19:13,439 ERROR ...artist_id->-1
+2020-10-22 09:19:13,439 ERROR ...album_id:2605
+2020-10-22 09:19:13,439 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:13,692 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:13,692 ERROR statement_id:32
+2020-10-22 09:19:13,692 ERROR ...artist->TSOL
+2020-10-22 09:19:13,692 ERROR ...artist_id->-1
+2020-10-22 09:19:13,693 ERROR ...album_id:2605
+2020-10-22 09:19:13,693 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:13,940 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:13,940 ERROR statement_id:32
+2020-10-22 09:19:13,940 ERROR ...artist->TSOL
+2020-10-22 09:19:13,940 ERROR ...artist_id->-1
+2020-10-22 09:19:13,940 ERROR ...album_id:2605
+2020-10-22 09:19:13,940 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:14,182 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:14,182 ERROR statement_id:32
+2020-10-22 09:19:14,182 ERROR ...artist->TSOL
+2020-10-22 09:19:14,182 ERROR ...artist_id->-1
+2020-10-22 09:19:14,182 ERROR ...album_id:2605
+2020-10-22 09:19:14,182 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:15,274 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:15,274 ERROR statement_id:32
+2020-10-22 09:19:15,274 ERROR ...artist->TSOL
+2020-10-22 09:19:15,274 ERROR ...artist_id->-1
+2020-10-22 09:19:15,274 ERROR ...album_id:2605
+2020-10-22 09:19:15,274 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:15,520 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:15,520 ERROR statement_id:32
+2020-10-22 09:19:15,520 ERROR ...artist->TSOL
+2020-10-22 09:19:15,520 ERROR ...artist_id->-1
+2020-10-22 09:19:15,520 ERROR ...album_id:2605
+2020-10-22 09:19:15,520 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:16,035 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:16,036 ERROR statement_id:32
+2020-10-22 09:19:16,036 ERROR ...artist->TSOL
+2020-10-22 09:19:16,036 ERROR ...artist_id->-1
+2020-10-22 09:19:16,036 ERROR ...album_id:2605
+2020-10-22 09:19:16,036 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:16,289 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:16,289 ERROR statement_id:32
+2020-10-22 09:19:16,289 ERROR ...artist->TSOL
+2020-10-22 09:19:16,289 ERROR ...artist_id->-1
+2020-10-22 09:19:16,289 ERROR ...album_id:2605
+2020-10-22 09:19:16,289 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:16,536 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:16,536 ERROR statement_id:32
+2020-10-22 09:19:16,536 ERROR ...artist->TSOL
+2020-10-22 09:19:16,536 ERROR ...artist_id->-1
+2020-10-22 09:19:16,536 ERROR ...album_id:2605
+2020-10-22 09:19:16,537 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:21,708 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:21,708 ERROR statement_id:32
+2020-10-22 09:19:21,708 ERROR ...artist->TSOL
+2020-10-22 09:19:21,708 ERROR ...artist_id->-1
+2020-10-22 09:19:21,708 ERROR ...album_id:2605
+2020-10-22 09:19:21,708 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:21,947 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:21,947 ERROR statement_id:32
+2020-10-22 09:19:21,947 ERROR ...artist->TSOL
+2020-10-22 09:19:21,947 ERROR ...artist_id->-1
+2020-10-22 09:19:21,947 ERROR ...album_id:2605
+2020-10-22 09:19:21,947 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:22,194 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:22,194 ERROR statement_id:32
+2020-10-22 09:19:22,194 ERROR ...artist->TSOL
+2020-10-22 09:19:22,194 ERROR ...artist_id->-1
+2020-10-22 09:19:22,194 ERROR ...album_id:2605
+2020-10-22 09:19:22,194 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:22,437 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:22,437 ERROR statement_id:32
+2020-10-22 09:19:22,437 ERROR ...artist->TSOL
+2020-10-22 09:19:22,437 ERROR ...artist_id->-1
+2020-10-22 09:19:22,437 ERROR ...album_id:2605
+2020-10-22 09:19:22,438 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:22,948 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:22,948 ERROR statement_id:32
+2020-10-22 09:19:22,948 ERROR ...artist->TSOL
+2020-10-22 09:19:22,948 ERROR ...artist_id->-1
+2020-10-22 09:19:22,948 ERROR ...album_id:2605
+2020-10-22 09:19:22,949 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:23,185 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:23,185 ERROR statement_id:32
+2020-10-22 09:19:23,185 ERROR ...artist->TSOL
+2020-10-22 09:19:23,185 ERROR ...artist_id->-1
+2020-10-22 09:19:23,185 ERROR ...album_id:2605
+2020-10-22 09:19:23,186 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:23,723 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:23,723 ERROR statement_id:32
+2020-10-22 09:19:23,723 ERROR ...artist->TSOL
+2020-10-22 09:19:23,723 ERROR ...artist_id->-1
+2020-10-22 09:19:23,723 ERROR ...album_id:2605
+2020-10-22 09:19:23,723 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:23,972 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:23,972 ERROR statement_id:32
+2020-10-22 09:19:23,972 ERROR ...artist->TSOL
+2020-10-22 09:19:23,972 ERROR ...artist_id->-1
+2020-10-22 09:19:23,973 ERROR ...album_id:2605
+2020-10-22 09:19:23,973 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:24,216 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:24,216 ERROR statement_id:32
+2020-10-22 09:19:24,216 ERROR ...artist->TSOL
+2020-10-22 09:19:24,216 ERROR ...artist_id->-1
+2020-10-22 09:19:24,216 ERROR ...album_id:2605
+2020-10-22 09:19:24,216 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:24,458 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:24,459 ERROR statement_id:32
+2020-10-22 09:19:24,459 ERROR ...artist->TSOL
+2020-10-22 09:19:24,459 ERROR ...artist_id->-1
+2020-10-22 09:19:24,459 ERROR ...album_id:2605
+2020-10-22 09:19:24,459 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:24,698 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:24,699 ERROR statement_id:32
+2020-10-22 09:19:24,699 ERROR ...artist->TSOL
+2020-10-22 09:19:24,699 ERROR ...artist_id->-1
+2020-10-22 09:19:24,699 ERROR ...album_id:2605
+2020-10-22 09:19:24,699 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:24,934 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:24,934 ERROR statement_id:32
+2020-10-22 09:19:24,934 ERROR ...artist->TSOL
+2020-10-22 09:19:24,934 ERROR ...artist_id->-1
+2020-10-22 09:19:24,934 ERROR ...album_id:2605
+2020-10-22 09:19:24,934 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:25,177 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:25,177 ERROR statement_id:32
+2020-10-22 09:19:25,177 ERROR ...artist->TSOL
+2020-10-22 09:19:25,177 ERROR ...artist_id->-1
+2020-10-22 09:19:25,177 ERROR ...album_id:2605
+2020-10-22 09:19:25,177 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:25,418 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:25,418 ERROR statement_id:32
+2020-10-22 09:19:25,418 ERROR ...artist->TSOL
+2020-10-22 09:19:25,418 ERROR ...artist_id->-1
+2020-10-22 09:19:25,418 ERROR ...album_id:2605
+2020-10-22 09:19:25,418 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:25,659 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:25,659 ERROR statement_id:32
+2020-10-22 09:19:25,659 ERROR ...artist->TSOL
+2020-10-22 09:19:25,659 ERROR ...artist_id->-1
+2020-10-22 09:19:25,659 ERROR ...album_id:2605
+2020-10-22 09:19:25,659 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:26,162 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:26,162 ERROR statement_id:32
+2020-10-22 09:19:26,162 ERROR ...artist->TSOL
+2020-10-22 09:19:26,162 ERROR ...artist_id->-1
+2020-10-22 09:19:26,163 ERROR ...album_id:2605
+2020-10-22 09:19:26,163 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:26,401 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:26,402 ERROR statement_id:32
+2020-10-22 09:19:26,402 ERROR ...artist->TSOL
+2020-10-22 09:19:26,402 ERROR ...artist_id->-1
+2020-10-22 09:19:26,402 ERROR ...album_id:2605
+2020-10-22 09:19:26,402 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:26,643 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:26,644 ERROR statement_id:32
+2020-10-22 09:19:26,644 ERROR ...artist->TSOL
+2020-10-22 09:19:26,644 ERROR ...artist_id->-1
+2020-10-22 09:19:26,644 ERROR ...album_id:2605
+2020-10-22 09:19:26,644 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:26,881 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:26,881 ERROR statement_id:32
+2020-10-22 09:19:26,881 ERROR ...artist->TSOL
+2020-10-22 09:19:26,881 ERROR ...artist_id->-1
+2020-10-22 09:19:26,881 ERROR ...album_id:2605
+2020-10-22 09:19:26,881 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 09:19:27,122 ERROR EXCEPTION-><class 'KeyError'>
+2020-10-22 09:19:27,123 ERROR statement_id:32
+2020-10-22 09:19:27,123 ERROR ...artist->TSOL
+2020-10-22 09:19:27,123 ERROR ...artist_id->-1
+2020-10-22 09:19:27,123 ERROR ...album_id:2605
+2020-10-22 09:19:27,123 ERROR ...track:(Can't Get My) Head Around You
+2020-10-22 19:24:58,048 ERROR Error, skipping artist, Bad Cop,Bad Cop
+2020-10-22 19:25:44,154 ERROR Error, skipping artist, D.R.I
+2020-10-22 19:25:53,897 ERROR Error, skipping artist, Exploited
+2020-10-22 19:25:54,431 ERROR Error, skipping artist, Fever 333
+2020-10-22 19:27:51,726 ERROR Error, skipping artist, Motorhead
+2020-10-22 19:29:07,871 ERROR Error, skipping artist, Phil Campbell and the Bastard Sons
+2020-10-22 19:29:08,356 ERROR Error, skipping artist, Propaghandi
+2020-10-22 19:48:47,858 ERROR Error, skipping artist, The Potato Pirates

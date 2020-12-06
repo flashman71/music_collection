@@ -8,6 +8,7 @@ import sys
 #
 #   Requires:
 #            last.fm api key --must sign up on last.fm website
+3            See last.fm site for API info
 #
 # ******************************************************************
 
@@ -32,8 +33,7 @@ def getArtist(artist_name,api_key):
 
         r = requests.get('http://ws.audioscrobbler.com/2.0/',headers=headers,params=payload)
         if r.status_code != 200:
-            print("Fucked up")
-            return "Fucked Up"
+            return "getArtist failed"
 
         resp_json = r.json()
         return resp_json['artist']['mbid']
@@ -63,8 +63,7 @@ def getAlbums(artist_name,api_key):
 
         r = requests.get('http://ws.audioscrobbler.com/2.0/',headers=headers,params=payload)
         if r.status_code != 200:
-            print("Fucked up")
-            return "Fucked Up"
+            return "getAlbums failed"
 
         return r.json()
     except KeyError:
@@ -94,8 +93,7 @@ def getAlbumInfo(artist_name,album_name,api_key):
 
         r = requests.get('http://ws.audioscrobbler.com/2.0/',headers=headers,params=payload)
         if r.status_code != 200:
-            print("Fucked up")
-            return "Fucked Up"
+            return "getAlbumInfo failed"
 
         return r.json()
     except KeyError:
@@ -123,8 +121,7 @@ def getSimilar(artist_name,api_key):
 
         r = requests.get('http://ws.audioscrobbler.com/2.0/',headers=headers,params=payload)
         if r.status_code != 200:
-            print("Fucked up")
-            return "Fucked Up"
+            return "getSimilar failed"
 
         return r.json()
     except KeyError:

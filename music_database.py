@@ -37,6 +37,8 @@ def closeDb(con):
 #   Dependency:
 #              Oracle stored procedure
 #               music_app.music_coll_ops.ins_upd_artist
+#              Postgres procedure
+#               music.process_artists   
 #   Input(s):
 #            db type
 #            db connection
@@ -72,6 +74,8 @@ def process_artist(dbtype,conn,artist_id,artist_name,artist_mbid,app_name):
 #   Dependency:
 #              Oracle stored procedure
 #               music_app.music_coll_ops.ins_upd_album
+#              Postgres procedure
+#               music.process_albums   
 #   Input(s):
 #            db connection
 #            album_id --Album ID if this is an existing record
@@ -107,6 +111,8 @@ def process_album(dbtype,conn,album_id,artist_id,album_name,app_name):
 #   Dependency:
 #              Oracle stored procedure
 #               music_app.music_coll_ops.ins_upd_track
+#              Postgres procedure
+#               music.process_tracks   
 #   Input(s):
 #            db connection
 #            track_id --Track ID if this is an existing track

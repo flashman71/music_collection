@@ -26,10 +26,17 @@ DBTYPE = ""
 DBUSERNAME = ""
 DBPASSWORD = ""
 
+# Local function for messaging, this could also be put into a separate file to be shared
 def exit_prog(message):
-   message = "Can't fucking find-> " + message
+   message = "Can't find-> " + message
    exit(message)
 
+# Read the config file.  Expects specific file in specific location, didn't see any need to make this configurable
+# Cycle through the key/value pairs and define local variables as needed
+# yaml expects a file format similar to a Windows .ini file
+#  Example
+#   FILES:
+#          ARTIST_FILE: /tmp/artist.txt
 with open(r'db/music_collection.rc') as file:
     opt_list = yaml.full_load(file)
 
@@ -98,7 +105,7 @@ logger.setLevel(log_level)
 # Variable to determine if processing should continue, default to False
 fcont = False
 
-# File to hold artists that cannot be found
+# Exception file to hold artists that cannot be found
 outfile = OUTPUT + "/" + APP_NAME + "_exceptions.txt"
 exc_file = open(outfile,"w")
 
@@ -135,12 +142,14 @@ if DBTYPE != "":
    # Open the database connection
    conn = mdb.connectDb(DBTYPE,DBHOST,DBNAME,DBUSERNAME,DBPASSWORD)
 else:
-   logger.warn('No database defined in configuration file')
+   logger.error('No database defined in configuration file')
 
 # Variable used to log location of program if an error is encountered
 statement_id = '0'
 
 # Loop through the records in the artist list
+# For each artist found, get the associated albums
+# for each alubm, get the associated songs
 for x in f_readlines:
     mbid = ms.getArtist(x.strip(),apikey.strip())
     if "Error" in mbid:
@@ -208,6 +217,7 @@ for x in f_readlines:
                      logger.error('...album_id:' + str(album_id))
                      logger.error('...track:' + l_track_name)
 
+# Close all of the open resources
 fin.close()
 exc_file.close()
 mdb.closeDb(conn)

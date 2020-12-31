@@ -7,9 +7,18 @@ FILES:
      ARTIST_FILE:/home/gary/dev/git/music_collection/db/artists.txt
      KEYFILE:/home/gary/dev/temp/music_collection/.keyfile
 
+xDATABASE:
+     TYPE:ORACLE
+     USERNAME:<your db username>
+     DBNAME:<your db>
+     DBHOST:<your host>
+     DBPASS:<your password>
+     DBPORT:<your db port>
+
 DATABASE:
      TYPE:POSTGRES
-     USERNAME:svc_musicapp
-     DBNAME:musicdb 
-     DBHOST:galileo
-     DBPASS:music
+     USERNAME:<your db username>
+     DBNAME:<your db>
+     DBHOST:<your host>
+     DBPASS:<your password>
+

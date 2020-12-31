@@ -19,7 +19,7 @@ import music_services as ms
 APP_NAME = "PY_MUSIC_APP"
 
 # Default LOG_LEVEL, this can be set here or in the config file
-L_LOG_LEVEL = 'WARNING'
+L_LOG_LEVEL = 'INFO'
 
 # Default database variables to empty string
 DBTYPE = ""
@@ -90,6 +90,10 @@ with open(r'db/music_collection.rc') as file:
            DBPASSWORD = k.split(":")[1]
         if k.split(":")[0] == "DBHOST":
            DBHOST = k.split(":")[1]
+        if k.split(":")[0] == "DBPORT":
+           DBPORT = k.split(":")[1]
+        else:
+           DBPORT=""
            
 
 #Prepare logging
@@ -140,17 +144,20 @@ f_readlines = fin.readlines()
  
 if DBTYPE != "":
    # Open the database connection
-   conn = mdb.connectDb(DBTYPE,DBHOST,DBNAME,DBUSERNAME,DBPASSWORD)
+   conn = mdb.connectDb(DBTYPE,DBHOST,DBNAME,DBUSERNAME,DBPASSWORD,DBPORT)
 else:
    logger.error('No database defined in configuration file')
 
 # Variable used to log location of program if an error is encountered
 statement_id = '0'
 
+logger.info('DBTYPE [' + DBTYPE + ']')
+
 # Loop through the records in the artist list
 # For each artist found, get the associated albums
-# for each alubm, get the associated songs
+# for each album, get the associated songs
 for x in f_readlines:
+    logger.info('Processing artist [' + x.strip() + ']')
     mbid = ms.getArtist(x.strip(),apikey.strip())
     if "Error" in mbid:
         exc_file.write(x.strip() + '\n')
@@ -162,60 +169,83 @@ for x in f_readlines:
         if "Error" in albums:
             logger.warning('Error, unable to get albums')
         else:
+            logger.info('1) Setting artist_id = -1')
             artist_id = -1
             for album in albums['topalbums']['album']:
+               logger.info('Processing album [' + album['name'] + ']')
                a_info = ms.getAlbumInfo(x.strip(),album['name'],apikey.strip())
-               try:
-                   if len(a_info['album']['tracks']['track']) > 0:
-                       statement_id = '10'
-                       if artist_id == -1:
-                            statement_id = '11'
-                            artist_id, artist_status, artist_message = mdb.process_artist(DBTYPE,conn,-1,x.strip(),mbid,APP_NAME)                        
-                       else:
-                            artist_status = 0
+               logger.info('a_info [' + str(a_info) + ']')
+               if "error" in a_info or "Error" in a_info:
+                   logger.warning('Error, unable to get album info')
+               else:
+                   try:
+                       if len(a_info['album']['tracks']['track']) > 0:
+                           statement_id = '10'
+                           logger.info('2) Setting artist_id = -1')
+                           if artist_id == -1:
+                                statement_id = '11'
+                                logger.info('Calling process_artist')
+                                artist_id, artist_status, artist_message = mdb.process_artist(DBTYPE,conn,-1,x.strip(),mbid,APP_NAME)                        
+                           else:
+                                artist_status = '0'
 
-                       if artist_status != 0:
-                          logger.error('------Artist Return Begin----')
-                          logger.error('id: '+ str(artist_id))
-                          logger.error('status: '+ str(artist_status))
-                          logger.error('message: '+ artist_message)
-                          logger.error('artist: ' + x.strip())
-                          logger.error('------Artist Return End----')
-                       else:
-                           statement_id = '15'
-                           l_album_name = album['name']
-                           album_id, album_status, album_message = mdb.process_album(DBTYPE,conn,-1,artist_id,l_album_name.strip(),APP_NAME)
-                           if album_status != 0:
-                              logger.error('------Album Return Begin----')
-                              logger.error('artist_id: '+ str(artist_id))
-                              logger.error('status: '+ str(album_status))
-                              logger.error('message: '+ album_message)
+                           if artist_status != '0':
+                              logger.error('------Artist Return Begin----')
+                              logger.error('id: '+ str(artist_id))
+                              logger.error('status: '+ str(artist_status))
+                              logger.error('message: '+ str(artist_message))
                               logger.error('artist: ' + x.strip())
-                              logger.error('------Album Return End----')
-                           else: 
-                               statement_id = '25'
-                               for track in a_info['album']['tracks']['track']:
-                                   statement_id = '30'
-                                   #l_track_name = str(track['name'].encode('utf-8'))
-                                   l_track_name = track['name']
-                                   statement_id = '31'
-                                   track_id, track_status,track_message = mdb.process_track(DBTYPE,conn,-1,artist_id,album_id,l_track_name,APP_NAME)
-                                   statement_id = '32'
-                                   if track_status != 0:
-                                      logger.error('---------Track Error Begin------')
-                                      logger.error(' status:' + str(track_status))
-                                      logger.error(' message:' + track_message)
-                                      logger.error(' artist_id:' + str(artist_id))
-                                      logger.error(' album_id:' + str(album_id))
-                                      logger.error('---------Track Error End------')
-
-               except:
-                     logger.error('EXCEPTION->'+str(sys.exc_info()[0]))
-                     logger.error('statement_id:' + statement_id)
-                     logger.error('...artist->' + x.strip())
-                     logger.error('...artist_id->' + str(artist_id))
-                     logger.error('...album_id:' + str(album_id))
-                     logger.error('...track:' + l_track_name)
+                              logger.error('------Artist Return End----')
+                           else:
+                               statement_id = '15'
+                               l_album_name = album['name']
+                               logger.info('Calling process_album [' + l_album_name + ']')
+                               album_id, album_status, album_message = mdb.process_album(DBTYPE,conn,-1,artist_id,l_album_name.strip(),APP_NAME)
+                               logger.info('...Return process_album, id [' + str(album_id) + '], status [' + str(album_status) + '], Msg [' + str(album_message) + ']')
+                               if album_status != '0':
+                                  logger.error('------Album Return Begin----')
+                                  logger.error('album: '+ l_album_name.strip())
+                                  logger.error('album_id: '+ str(album_id))
+                                  logger.error('artist_id: '+ str(artist_id))
+                                  logger.error('status: ['+ str(album_status) + ']')
+                                  logger.error('message: ['+ str(album_message) + ']')
+                                  logger.error('artist: ' + x.strip())
+                                  logger.error('------Album Return End----')
+                               else: 
+                                   statement_id = '25'
+                                   logger.info('Statement id 25, before for track in a_info loop')
+                                   for track in a_info['album']['tracks']['track']:
+                                       statement_id = '30'
+                                       l_track_name = track['name']
+                                       statement_id = '31'
+                                       logger.info('Calling process_track, album [' + l_album_name + '], track [' + l_track_name + ']')
+                                       track_id, track_status,track_message = mdb.process_track(DBTYPE,conn,-1,artist_id,album_id,l_track_name,APP_NAME)
+                                       logger.info('...Return process_track, id [' + str(track_id) + '], status [' + str(track_status) + '], Msg [' + str(track_message) + ']')
+                                       statement_id = '32'
+                                       if track_status != '0':
+                                          logger.error('---------Track Error Begin------')
+                                          logger.error(' status:' + str(track_status))
+                                          logger.error(' message:' + str(track_message))
+                                          logger.error(' artist_id:' + str(artist_id))
+                                          logger.error(' album_id:' + str(album_id))
+                                          logger.error('---------Track Error End------')
+    
+                       else:
+                           statement_id = '40'
+                           logger.info('Skipping, no tracks on album [' + str(a_info) + ']')
+                   except Exception as e:
+                         logger.error('EXCEPTION->'+str(sys.exc_info()[0]))
+                         logger.error('EXC MSG->' + str(e))
+                         logger.error('EXC MSG (repr)->' + repr(e))
+                         logger.error('statement_id:' + statement_id)
+                         logger.error('...artist->' + x.strip())
+                         logger.error('...artist_id->' + str(artist_id))
+                         if album_id in locals():
+                              logger.error('...album_id:' + str(album_id))
+                         else:
+                              logger.error('...album_id not defined')
+                         if l_track_name in locals():
+                              logger.error('...track:' + l_track_name)
 
 # Close all of the open resources
 fin.close()

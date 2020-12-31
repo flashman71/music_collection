@@ -6,14 +6,15 @@ This is for my personal use.  It's so I can learn some Python coding as well as 
 
 Dependencies:
     
-    Requires a database, currently setup for Oracle and Postgres.  I no longer have a running copy of 
-    Oracle so you may have to troubleshoot.  :-)  
+    Requires a database, currently setup for Oracle and Postgres.  
+    My testing was done on a local install of Postgres, and a Docker version of Oracle.
     
     last.fm - Need an apikey to access web services
     
 Python dependencies:
     neo4j
     pyscopg2
+    cx_Oracle   
 
 Local requirements:
     artists.txt - This is a list of bands/musicians that will be queried against the last.fm database

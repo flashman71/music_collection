@@ -8,7 +8,7 @@ import sys
 #
 #   Requires:
 #            last.fm api key --must sign up on last.fm website
-3            See last.fm site for API info
+#            See last.fm site for API info
 #
 # ******************************************************************
 
@@ -33,7 +33,7 @@ def getArtist(artist_name,api_key):
 
         r = requests.get('http://ws.audioscrobbler.com/2.0/',headers=headers,params=payload)
         if r.status_code != 200:
-            return "getArtist failed"
+            return "Error, getArtist failed"
 
         resp_json = r.json()
         return resp_json['artist']['mbid']
@@ -63,7 +63,7 @@ def getAlbums(artist_name,api_key):
 
         r = requests.get('http://ws.audioscrobbler.com/2.0/',headers=headers,params=payload)
         if r.status_code != 200:
-            return "getAlbums failed"
+            return "Error, getAlbums failed"
 
         return r.json()
     except KeyError:
@@ -93,9 +93,17 @@ def getAlbumInfo(artist_name,album_name,api_key):
 
         r = requests.get('http://ws.audioscrobbler.com/2.0/',headers=headers,params=payload)
         if r.status_code != 200:
-            return "getAlbumInfo failed"
+            print('getAlbumInfo, status code: ' + r.status_code)
+            return "Error, getAlbumInfo failed"
 
-        return r.json()
+        if 'json' in r.headers.get('Content-Type'):
+            try:
+                return r.json()
+            except Exception as e1:
+                return "error, msg [" + repr(e1) + "]" 
+        else:
+            return "error, not in json format"
+
     except KeyError:
         return "Error, unable to find albums"
 
@@ -121,7 +129,7 @@ def getSimilar(artist_name,api_key):
 
         r = requests.get('http://ws.audioscrobbler.com/2.0/',headers=headers,params=payload)
         if r.status_code != 200:
-            return "getSimilar failed"
+            return "Error, getSimilar failed"
 
         return r.json()
     except KeyError:

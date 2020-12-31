@@ -1,4 +1,4 @@
-#import cx_Oracle
+import cx_Oracle
 import psycopg2
 import sys
 
@@ -7,23 +7,24 @@ import sys
 #   which are used to insert/update records in the database.
 #   It is built for Oracle and Postgresql databases.
 #   Connection can be made with username/password, or OS username can be used (eg, sqlplus /)
+#   All return types are set as strings.
 #   
 # ************************************************************************************************
 
 # Open a connection to the database
-def connectDb(dbtype,dbhost,dbname,dbuser,dbpass):
+def connectDb(dbtype,dbhost,dbname,dbuser,dbpass,dbport):
   # Default return value to null
     con = ""
 
     if dbtype == 'ORACLE':
-       if creds == '':
+       if dbuser == '':
           creds = '/'
+       else:
+          creds = dbuser + "/" + dbpass + "@" + dbhost + ":" + dbport + "/" + dbname
 
        con = cx_Oracle.connect(creds)
-       print("Connected")
     else:
        if dbtype == 'POSTGRES':
-          print("Connecting to postgres")
           con = psycopg2.connect(host=dbhost,dbname=dbname,user=dbuser,password=dbpass)
 
     return con
@@ -36,7 +37,7 @@ def closeDb(con):
 # Insert/update artist
 #   Dependency:
 #              Oracle stored procedure
-#               music_app.music_coll_ops.ins_upd_artist
+#               music_adm.music_coll_ops.ins_upd_artist
 #              Postgres procedure
 #               music.process_artists   
 #   Input(s):
@@ -53,12 +54,11 @@ def closeDb(con):
 def process_artist(dbtype,conn,artist_id,artist_name,artist_mbid,app_name):
      with conn.cursor() as cursor:
                            if dbtype == 'ORACLE':
-                               new_artist_id = cursor.var(int)
-                               artist_status = cursor.var(int)
+                               new_artist_id = cursor.var(str)
+                               artist_status = cursor.var(str)
                                artist_message = cursor.var(str)
-                               cursor.callproc('music_app.music_coll_ops.ins_upd_artist',[artist_id,artist_name,artist_mbid,app_name,new_artist_id,artist_status,artist_message])
+                               cursor.callproc('music_adm.music_coll_ops.ins_upd_artist',[artist_id,artist_name,artist_mbid,app_name,new_artist_id,artist_status,artist_message])
                            elif dbtype == 'POSTGRES':
-                               print("Executing postgres procedure")
                                cursor.execute("CALL music.process_artists(%s,%s,%s,null,null,null);",(artist_name,artist_mbid,app_name))
                                proc_results = cursor.fetchall()
                                new_artist_id = proc_results[0][0]
@@ -67,13 +67,17 @@ def process_artist(dbtype,conn,artist_id,artist_name,artist_mbid,app_name):
                                cursor.close()
  
                            conn.commit()
-                           #return new_artist_id.getvalue(),artist_status.getvalue(),artist_message.getvalue()
-                           return new_artist_id,artist_status,artist_message
+
+                           if dbtype == 'ORACLE':
+                               return new_artist_id.getvalue(),artist_status.getvalue(),artist_message.getvalue()
+                           elif dbtype == 'POSTGRES':
+                               return str(new_artist_id),str(artist_status),str(artist_message)
+                               
 
 # Insert/update album
 #   Dependency:
 #              Oracle stored procedure
-#               music_app.music_coll_ops.ins_upd_album
+#               music_adm.music_coll_ops.ins_upd_album
 #              Postgres procedure
 #               music.process_albums   
 #   Input(s):
@@ -89,12 +93,11 @@ def process_artist(dbtype,conn,artist_id,artist_name,artist_mbid,app_name):
 def process_album(dbtype,conn,album_id,artist_id,album_name,app_name):
      with conn.cursor() as cursor:
                            if dbtype == 'ORACLE':
-                               new_album_id = cursor.var(int)
-                               album_status = cursor.var(int)
+                               new_album_id = cursor.var(str)
+                               album_status = cursor.var(str)
                                album_message = cursor.var(str)
-                               cursor.callproc('music_app.music_coll_ops.ins_upd_album',[album_id,artist_id,album_name,app_name,new_album_id,album_status,album_message])
+                               cursor.callproc('music_adm.music_coll_ops.ins_upd_album',[album_id,artist_id,album_name,app_name,new_album_id,album_status,album_message])
                            elif dbtype == 'POSTGRES':
-                               print("Executing postgres procedure")
                                cursor.execute("CALL music.process_albums(%s,%s,%s,null,null,null);",(artist_id,album_name,app_name))
                                proc_results = cursor.fetchall()
                                new_album_id = proc_results[0][0]
@@ -104,13 +107,15 @@ def process_album(dbtype,conn,album_id,artist_id,album_name,app_name):
  
                            conn.commit()
                               
-                           #return new_album_id.getvalue(),album_status.getvalue(),album_message.getvalue()
-                           return new_album_id,album_status,album_message
+                           if dbtype == 'ORACLE':
+                               return new_album_id.getvalue(),album_status.getvalue(),album_message.getvalue()
+                           elif dbtype == 'POSTGRES':
+                               return str(new_album_id),str(album_status),str(album_message)
 
 # Insert/update track
 #   Dependency:
 #              Oracle stored procedure
-#               music_app.music_coll_ops.ins_upd_track
+#               music_adm.music_coll_ops.ins_upd_track
 #              Postgres procedure
 #               music.process_tracks   
 #   Input(s):
@@ -127,12 +132,11 @@ def process_album(dbtype,conn,album_id,artist_id,album_name,app_name):
 def process_track(dbtype,conn,track_id,artist_id,album_id,track_name,app_name):
      with conn.cursor() as cursor:
                            if dbtype == 'ORACLE':
-                               new_track_id = cursor.var(int)
-                               track_status = cursor.var(int)
+                               new_track_id = cursor.var(str)
+                               track_status = cursor.var(str)
                                track_message = cursor.var(str)
-                               cursor.callproc('music_app.music_coll_ops.ins_upd_track',[track_id,artist_id,album_id,track_name,app_name,new_track_id,track_status,track_message])
+                               cursor.callproc('music_adm.music_coll_ops.ins_upd_track',[track_id,artist_id,album_id,track_name,app_name,new_track_id,track_status,track_message])
                            elif dbtype == 'POSTGRES':
-                               print("Executing postgres procedure (process_track), track_name [",track_name,"]")
                                cursor.execute("CALL music.process_tracks(%s,%s,%s,null,null,null);",(album_id,track_name,app_name))
                                proc_results = cursor.fetchall()
                                new_track_id = proc_results[0][0]
@@ -141,4 +145,9 @@ def process_track(dbtype,conn,track_id,artist_id,album_id,track_name,app_name):
                                cursor.close()
  
                            conn.commit()
-                           return new_track_id,track_status,track_message
+
+                           if dbtype == 'ORACLE':
+                               return new_track_id.getvalue(),track_status.getvalue(),track_message.getvalue()
+                           elif dbtype == 'POSTGRES':
+                               return str(new_track_id),str(track_status),str(track_message)
+

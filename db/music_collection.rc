@@ -9,16 +9,16 @@ FILES:
 
 xDATABASE:
      TYPE:ORACLE
-     USERNAME:<your db username>
-     DBNAME:<your db>
-     DBHOST:<your host>
-     DBPASS:<your password>
+     USERNAME:<your Oracle username>
+     DBNAME:<your Oracle db name>
+     DBHOST:<your Oracle host>
+     DBPASS:<your db password>
      DBPORT:<your db port>
 
 DATABASE:
      TYPE:POSTGRES
-     USERNAME:<your db username>
-     DBNAME:<your db>
-     DBHOST:<your host>
-     DBPASS:<your password>
+     USERNAME:<your Postgres username>
+     DBNAME:<your Postgres db name>
+     DBHOST:<your Postgres db host>
+     DBPASS:<your Postgres db password>
 

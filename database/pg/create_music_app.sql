@@ -134,3 +134,29 @@ select t.id,
        t.date_updated,
        t.app_updated
 from   music.tracks_$t t;
+
+/* Create view for artist/album combinations */
+CREATE OR REPLACE VIEW music.album_view
+AS
+SELECT ma.id AS artist_id,
+       ma.name AS artist_name,
+       mb.id AS album_id,
+       mb.album_name
+FROM   music."artists_$t" ma,
+       music."albums_$t" mb
+WHERE  ma.id = mb.artist_id;
+
+/* Create view for artist/album/track combinations */
+CREATE OR REPLACE VIEW music.track_view
+AS
+SELECT ar.id AS artist_id,
+       ar.name AS artist_name,
+       al.id AS album_id,
+       al.album_name,
+       tr.id AS track_id,
+       tr.track_name
+FROM   music."artists_$t" ar,
+       music."albums_$t" al,
+       music."tracks_$t" tr
+WHERE  ar.id = al.artist_id 
+AND    al.id = tr.album_id;

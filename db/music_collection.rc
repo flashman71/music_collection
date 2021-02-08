@@ -7,15 +7,15 @@ FILES:
      ARTIST_FILE:/home/gary/dev/git/music_collection/db/artists.txt
      KEYFILE:/home/gary/dev/temp/music_collection/.keyfile
 
-xDATABASE:
-     TYPE:ORACLE
-     USERNAME:<your Oracle username>
-     DBNAME:<your Oracle db name>
-     DBHOST:<your Oracle host>
-     DBPASS:<your db password>
-     DBPORT:<your db port>
-
 DATABASE:
+     TYPE:ORACLE
+     USERNAME:music_adm
+     DBNAME:XEPDB1
+     DBHOST:localhost:32118
+     DBPASS:music
+     DBPORT:32118
+
+xDATABASE:
      TYPE:POSTGRES
      USERNAME:<your Postgres username>
      DBNAME:<your Postgres db name>

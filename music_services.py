@@ -36,7 +36,13 @@ def getArtist(artist_name,api_key):
             return "Error, getArtist failed"
 
         resp_json = r.json()
-        return resp_json['artist']['mbid']
+# Return the MBID value if it exists in the return, otherwise if the name is found then return -2 as a default
+        if "mbid" in resp_json:
+            return resp_json['artist']['mbid']
+        elif "artist" in resp_json:
+            return "-2"
+        else:
+            return "Error, artist/mbid not found in response"
     except KeyError:
         return "Error, unable to find band"
 
@@ -93,7 +99,6 @@ def getAlbumInfo(artist_name,album_name,api_key):
 
         r = requests.get('http://ws.audioscrobbler.com/2.0/',headers=headers,params=payload)
         if r.status_code != 200:
-            print('getAlbumInfo, status code: ' + r.status_code)
             return "Error, getAlbumInfo failed"
 
         if 'json' in r.headers.get('Content-Type'):

@@ -1,3 +1,10 @@
+/* Drop and create the new user */
+DROP USER MUSIC_ADM CASCADE
+/
+
+CREATE USER MUSIC_ADM IDENTIFIED BY MUSIC
+/
+
 /* Drop and create the roles for the new tables/views
      MUSIC_COLL_RO - Read only, can only select
      MUSIC_COLL_RW - Read/write - can select, insert, update

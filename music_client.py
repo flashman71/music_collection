@@ -162,6 +162,7 @@ for x in f_readlines:
     if "Error" in mbid:
         exc_file.write(x.strip() + '\n')
         logger.error('Error, skipping artist, ' +  x.strip())
+        logger.error('...,' + mbid)
     else: 
 # If an mbid is found for the artist then call the service to get the albums
         logger.info(x.strip())

@@ -11,7 +11,7 @@ import sys
 # ************************************************************************************************
 
 # Open a connection to the database
-def connectDb(dbtype,dbhost,dbname,dbuser,dbpass):
+def connectDb(dbtype,dbhost,dbname,dbuser,dbpass,dbport):
   # Default return value to null
     con = ""
 
@@ -24,7 +24,7 @@ def connectDb(dbtype,dbhost,dbname,dbuser,dbpass):
     else:
        if dbtype == 'POSTGRES':
           print("Connecting to postgres")
-          con = psycopg2.connect(host=dbhost,dbname=dbname,user=dbuser,password=dbpass)
+          con = psycopg2.connect(host=dbhost,dbname=dbname,user=dbuser,password=dbpass,port=dbport)
 
     return con
 
@@ -136,3 +136,19 @@ def process_track(dbtype,conn,track_id,artist_id,album_id,track_name,app_name):
  
                            conn.commit()
                            return new_track_id,track_status,track_message
+
+# get_artists_l
+#  Retrieves all artist names from local database
+#   Input(s):
+#            db type
+#            db connection
+#   Return(s):
+#            list of records 
+def get_artists_l(dbtype,conn):
+     with conn.cursor() as cursor:
+                           if dbtype == "POSTGRES":
+                              #cursor.execute("SELECT DISTINCT ARTIST_NAME ARTIST FROM MUS_OWNER.ARTIST ORDER BY 1 LIMIT 5")
+                              cursor.execute("SELECT A.ARTIST_NAME ARTIST,A1.FULL_ALBUM_NAME,A1.ID ALBUM FROM MUS_OWNER.ARTIST A, MUS_OWNER.ALBUM A1 WHERE A.ID = A1.ARTIST_ID AND A1.DURATION_MIN IS NULL ORDER BY 1,2")
+                              rows = cursor.fetchall()
+
+                           return rows

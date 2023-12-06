@@ -9,10 +9,16 @@ FILES:
      SP_KEYFILE:/home/gary/.music_collection/sp_keyfile
 
 DATABASE:
+     TYPE:ORACLE
+     USERNAME:music_adm
+     DBNAME:XEPDB1
+     DBHOST:localhost:32118
+     DBPASS:music
+     DBPORT:32118
+
+xDATABASE:
      TYPE:POSTGRES
-     USERNAMEx:svc_musicapp
-     USERNAME:postgres
-     DBNAME:music 
-     DBHOST:galileo
-     DBPORT:65432
-     DBPASS:pg1
+     USERNAME:<your Postgres username>
+     DBNAME:<your Postgres db name>
+     DBHOST:<your Postgres db host>
+     DBPASS:<your Postgres db password>

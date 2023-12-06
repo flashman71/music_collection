@@ -8,8 +8,15 @@ import music_database as mdb
 import music_services as ms
 from neo4j import GraphDatabase, basic_auth
 
+###############################################################################
+#  Standalone script to load data into a neo4j database
+#  This will collect similar artists based on the list of artists that have been inserted.
+#
+
+# REALLY should have this in a config file.  Substitute your own neo4j info if you want it to work :-)
 driver = GraphDatabase.driver("bolt://galileo:7687", auth=("neo4j", "neo5j"),encrypted=False)
 
+# Local functions to add and print
 def add_artist(tx, name, artist_name):
     tx.run("MERGE (a:Artist {name: $name}) "
            "MERGE (a)-[:SIMILAR_TO]->(artist:Artist {name: $artist_name})",
@@ -37,7 +44,7 @@ APP_NAME = "PY_MUSIC_APP"
 L_LOG_LEVEL = 'WARNING'
 
 def exit_prog(message):
-   message = "Can't fucking find-> " + message
+   message = "Can't find-> " + message
    exit(message)
 
 with open(r'db/music_collection.rc') as file:

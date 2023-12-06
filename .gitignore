@@ -1,0 +1,9 @@
+lab/
+output/
+log/
+__pycache__/
+.cache
+db/artists_1.txt
+db/discogs_app.txt
+db/music_collection_1.rc
+discs.py

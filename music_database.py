@@ -25,7 +25,9 @@ def connectDb(dbtype,dbhost,dbname,dbuser,dbpass,dbport):
        con = cx_Oracle.connect(creds)
     else:
        if dbtype == 'POSTGRES':
-          con = psycopg2.connect(host=dbhost,dbname=dbname,user=dbuser,password=dbpass)
+          print("Connecting to postgres")
+          con = psycopg2.connect(host=dbhost,dbname=dbname,user=dbuser,password=dbpass,port=dbport)
+
 
     return con
 
@@ -146,8 +148,20 @@ def process_track(dbtype,conn,track_id,artist_id,album_id,track_name,app_name):
  
                            conn.commit()
 
-                           if dbtype == 'ORACLE':
-                               return new_track_id.getvalue(),track_status.getvalue(),track_message.getvalue()
-                           elif dbtype == 'POSTGRES':
-                               return str(new_track_id),str(track_status),str(track_message)
+                           return new_track_id,track_status,track_message
 
+# get_artists_l
+#  Retrieves all artist names from local database
+#   Input(s):
+#            db type
+#            db connection
+#   Return(s):
+#            list of records 
+def get_artists_l(dbtype,conn):
+     with conn.cursor() as cursor:
+                           if dbtype == "POSTGRES":
+                              #cursor.execute("SELECT A.ARTIST_NAME ARTIST,A1.FULL_ALBUM_NAME,A1.ID,A1.RELEASE_DATE ALBUM FROM MUS_OWNER.ARTIST A, MUS_OWNER.ALBUM A1 WHERE A.ID = A1.ARTIST_ID AND A1.DURATION_MIN IS NULL ORDER BY 1,2")
+                              cursor.execute("SELECT A.ARTIST_NAME ARTIST,A1.FULL_ALBUM_NAME,A1.ID,A1.RELEASE_DATE ALBUM FROM MUS_OWNER.ARTIST A, MUS_OWNER.ALBUM A1 WHERE A.ID = A1.ARTIST_ID AND A.ARTIST_NAME = 'Judas Priest' ORDER BY 1,2")
+                              rows = cursor.fetchall()
+
+                           return rows

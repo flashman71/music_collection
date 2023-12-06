@@ -147,8 +147,8 @@ def process_track(dbtype,conn,track_id,artist_id,album_id,track_name,app_name):
 def get_artists_l(dbtype,conn):
      with conn.cursor() as cursor:
                            if dbtype == "POSTGRES":
-                              #cursor.execute("SELECT DISTINCT ARTIST_NAME ARTIST FROM MUS_OWNER.ARTIST ORDER BY 1 LIMIT 5")
-                              cursor.execute("SELECT A.ARTIST_NAME ARTIST,A1.FULL_ALBUM_NAME,A1.ID ALBUM FROM MUS_OWNER.ARTIST A, MUS_OWNER.ALBUM A1 WHERE A.ID = A1.ARTIST_ID AND A1.DURATION_MIN IS NULL ORDER BY 1,2")
+                              #cursor.execute("SELECT A.ARTIST_NAME ARTIST,A1.FULL_ALBUM_NAME,A1.ID,A1.RELEASE_DATE ALBUM FROM MUS_OWNER.ARTIST A, MUS_OWNER.ALBUM A1 WHERE A.ID = A1.ARTIST_ID AND A1.DURATION_MIN IS NULL ORDER BY 1,2")
+                              cursor.execute("SELECT A.ARTIST_NAME ARTIST,A1.FULL_ALBUM_NAME,A1.ID,A1.RELEASE_DATE ALBUM FROM MUS_OWNER.ARTIST A, MUS_OWNER.ALBUM A1 WHERE A.ID = A1.ARTIST_ID AND A.ARTIST_NAME = 'Judas Priest' ORDER BY 1,2")
                               rows = cursor.fetchall()
 
                            return rows

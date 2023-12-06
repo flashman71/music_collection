@@ -1,0 +1,9 @@
+.cache
+__pycache__/
+db/artists_1.txt
+db/discogs_app.txt
+db/music_collection_1.rc
+discs.py
+lab/
+log/PY_SPOTIFY_APP.log
+output/PY_SPOTIFY_APP_exceptions.txt

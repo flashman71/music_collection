@@ -1,9 +1,20 @@
+<<<<<<< HEAD
 .cache
 __pycache__/
+=======
+lab/
+output/
+log/
+__pycache__/
+.cache
+>>>>>>> a5373eb380ee3d1a6fe67b9bab1db18a4e8e04cb
 db/artists_1.txt
 db/discogs_app.txt
 db/music_collection_1.rc
 discs.py
+<<<<<<< HEAD
 lab/
 log/PY_SPOTIFY_APP.log
 output/PY_SPOTIFY_APP_exceptions.txt
+=======
+>>>>>>> a5373eb380ee3d1a6fe67b9bab1db18a4e8e04cb

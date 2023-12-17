@@ -6,28 +6,7 @@ import json
 import logging
 import music_database as mdb
 import music_services as ms
-from neo4j import GraphDatabase, basic_auth
-
-###############################################################################
-#  Standalone script to load data into a neo4j database
-#  This will collect similar artists based on the list of artists that have been inserted.
-#
-
-# REALLY should have this in a config file.  Substitute your own neo4j info if you want it to work :-)
-driver = GraphDatabase.driver("bolt://galileo:7687", auth=("neo4j", "neo5j"),encrypted=False)
-
-# Local functions to add and print
-def add_artist(tx, name, artist_name):
-    tx.run("MERGE (a:Artist {name: $name}) "
-           "MERGE (a)-[:SIMILAR_TO]->(artist:Artist {name: $artist_name})",
-           name=name, artist_name=artist_name)
-
-def print_artists(tx, name):
-    for record in tx.run("MATCH (a:Artist)-[:KNOWS]->(artist) WHERE a.name = $name "
-                         "RETURN artist.name ORDER BY artist.name", name=name):
-        print(record["artist.name"])
-
-
+import spotify_services as ss
 
 # **********************************************************************************
 #  Main driving script.
@@ -38,13 +17,19 @@ def print_artists(tx, name):
 
 # Application name, used when inserting to the database
 # Really should move this to the config file....
-APP_NAME = "PY_MUSIC_APP"
+APP_NAME = "PY_SPOTIFY_APP"
 
 # Default LOG_LEVEL, this can be set here or in the config file
 L_LOG_LEVEL = 'WARNING'
 
+# Default database variables to empty string
+DBTYPE = ""
+DBUSERNAME = ""
+DBPASSWORD = ""
+DBPORT = 5432
+
 def exit_prog(message):
-   message = "Can't find-> " + message
+   message = "Can't fucking find-> " + message
    exit(message)
 
 with open(r'db/music_collection.rc') as file:
@@ -52,20 +37,12 @@ with open(r'db/music_collection.rc') as file:
 
     file_vars = opt_list["FILES"]
     for k in file_vars.split():
-        if k.split(":")[0] == "KEYFILE":
-           KEYFILE = k.split(":")[1]
-           if os.path.exists(KEYFILE):
-               print("Exists! Found: ", KEYFILE)
+        if k.split(":")[0] == "SP_KEYFILE":
+           SP_KEYFILE = k.split(":")[1]
+           if os.path.exists(SP_KEYFILE):
+               print("Exists! Found: ", SP_KEYFILE)
            else:
                exit_prog(KEYFILE)
-        if k.split(":")[0] == "ARTIST_FILE":
-           ARTIST_FILE = k.split(":")[1]
-           if os.path.exists(ARTIST_FILE):
-               print("Exists! Found: ", ARTIST_FILE)
-           else:
-               exit_prog(ARTIST_FILE)
-
-    for k in file_vars.split():
         if k.split(":")[0] == "ARTIST_FILE":
            ARTIST_FILE = k.split(":")[1]
            if os.path.exists(ARTIST_FILE):
@@ -92,11 +69,25 @@ with open(r'db/music_collection.rc') as file:
            if os.path.exists(LOG):
                print("Exists! Found: ", LOG)
            else:
-               exit_prog(MC_BASE)
+               exit_prog(LOG)
         if k.split(":")[0] == "LOG_LEVEL":
            L_LOG_LEVEL = k.split(":")[1]
            
-
+    db_vars = opt_list["DATABASE"]
+    for k in db_vars.split():
+        if k.split(":")[0] == "TYPE":
+           DBTYPE = k.split(":")[1]
+        if k.split(":")[0] == "DBNAME":
+           DBNAME = k.split(":")[1]
+        if k.split(":")[0] == "USERNAME":
+           DBUSERNAME = k.split(":")[1]
+        if k.split(":")[0] == "DBPASS":
+           DBPASSWORD = k.split(":")[1]
+        if k.split(":")[0] == "DBHOST":
+           DBHOST = k.split(":")[1]
+        if k.split(":")[0] == "DBPORT":
+           DBPORT = k.split(":")[1]
+           
 #Prepare logging
 logger = logging.getLogger(APP_NAME)
 logfilename = LOG + "/" + APP_NAME + ".log"
@@ -107,51 +98,84 @@ logger.addHandler(log_handler)
 log_level = logging.getLevelName(L_LOG_LEVEL)
 logger.setLevel(log_level)
 
+# Variable to determine if processing should continue, default to False
+fcont = False
+
 # File to hold artists that cannot be found
 outfile = OUTPUT + "/" + APP_NAME + "_exceptions.txt"
 exc_file = open(outfile,"w")
-
-# Artist ID --default to -1 to indicate an invalid artist id
-artist_id = -1
 
 # This block attempts to open the key file and read the key.
 # It will read the first line ONLY in the file.  As long as the length of the
 # input string is > 0 it will continue
 try:
-    fkey = open(KEYFILE,"r")
-    apikey = fkey.readline()
-    if len(apikey) > 0:
+    fkey = open(SP_KEYFILE,"r")
+    for line in fkey:
+        line = line.strip()
+        if line:
+            key,value = line.split(':',1)
+            if key == "CLIENT_ID":
+                SPOTIFY_CLIENT_ID = value.strip()
+            if key == "CLIENT_SECRET":
+                SPOTIFY_CLIENT_SECRET = value.strip()
+
+    if len(SPOTIFY_CLIENT_ID) > 0 and len(SPOTIFY_CLIENT_SECRET) > 0:
         fcont = True
     else:
         logger.error('No data found')
     fkey.close()
 except IOError:
     logger.error('Unable to open file or file not found')
-except:
+except Exception as err:
     logger.error('Other grisly problem opening/reading file')
+    print(f"Err: {err=}, {type(err)=}")
 
+# Artist ID --default to -1 to indicate an invalid artist id
+artist_id = -1
 
 # open the artists file and loop through the data
 # Call the service for each artist to get the mbid
 fin = open(ARTIST_FILE,"r")
 f_readlines = fin.readlines()
  
+if DBTYPE != "":
+   # Open the database connection
+   conn = mdb.connectDb(DBTYPE,DBHOST,DBNAME,DBUSERNAME,DBPASSWORD,DBPORT)
+else:
+   logger.warn('No database defined in configuration file')
+
 # Variable used to log location of program if an error is encountered
 statement_id = '0'
 
 # Loop through the records in the artist list
-for x in f_readlines:
-    mbid = ms.getArtist(x.strip(),apikey.strip())
-    if "Error" in mbid:
-        exc_file.write(x.strip() + '\n')
-        logger.error('Error, skipping artist, ' +  x.strip())
-    else: 
-        similar = ms.getSimilar(x.strip(),apikey.strip())
-        print("artist: ", x.strip())
-        for sim_art in similar['similarartists']['artist']:
-           #print(x.strip(),':',sim_art['name'])
-           with driver.session() as session:
-               session.write_transaction(add_artist, x.strip(), sim_art['name'])
 
-fin.close()
-driver.close()
+# Initialize the Spotipy client
+sp = ss.get_sp_token(SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET)
+curr_tracks = ss.get_top_tracks(sp)
+#sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=SPOTIFY_CLIENT_ID, client_secret=SPOTIFY_CLIENT_SECRET))
+
+artist_id = ""
+
+#if __name__ == "__main__":
+    # Prompt user to input the artist's name
+#    ss.search_album(sp,'Periphery','Periphery V: Djent is not a genre`')
+#    artists = mdb.get_artists_l(DBTYPE,conn)
+#    for artist_name in artists:
+#       srch_artist = f'{artist_name[0]}'
+#       srch_album  = f'{artist_name[1]}'
+#       album_id    = f'{artist_name[2]}'
+
+# This is the real one, uncomment to test
+#    artist = ss.search_artist(sp,'Periphery')
+#    if artist:
+#       artist_id = artist['id']
+#       genres = artist['genres']
+#       genres.sort()
+#       genres = str(genres).replace("[","{").replace("]","}").replace("'","\"")
+#       upd_stmt = "update mus_owner.album set spotify_genres = '" + str(genres) + "' where id = " + album_id + ";"
+#       print("UPD->",upd_stmt)
+#           album_info = ss.get_album(sp,artist_id,srch_album)
+#        else:
+#           print("Artist not found.")
+
+#mdb.closeDb(conn)
